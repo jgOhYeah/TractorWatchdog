@@ -23,7 +23,7 @@ public:
      * @param lcd reference to the LCD to use.
      */
     Display(LiquidCrystal_I2C &lcd) : lcd(lcd){};
-    
+
     /**
      * @brief Called regularly, even when the display is not currently activated.
      *
@@ -42,14 +42,14 @@ public:
      *
      */
     virtual void deactivate();
-    
+
     /**
      * @brief Called whenever data that the system might have on the screen is
      * updated.
-     * 
+     *
      * @param state the new data.
      */
-    virtual void updateData(State &state) {};
+    virtual void updateData(State &state){};
 
 protected:
     LiquidCrystal_I2C &lcd;
@@ -127,6 +127,12 @@ class DisplayHome : public Display
 {
 public:
     using Display::Display;
+
+    /**
+     * @brief Draws the display as the current one on the screen.
+     *
+     */
+    virtual void activate();
 };
 
 /**
@@ -140,7 +146,7 @@ public:
 
     /**
      * @brief Starts the graph.
-     * 
+     *
      */
     void begin()
     {
@@ -164,36 +170,114 @@ private:
 
 /**
  * @brief Display that shows an error message on the screen.
- * 
+ *
  */
-class DisplayError : public DisplayIntervalTick
+class DisplayError : public Display
 {
-    using DisplayIntervalTick::DisplayIntervalTick;
+public:
+    using Display::Display;
+
+    /**
+     * @brief Draws the display as the current one on the screen.
+     *
+     */
+    virtual void activate();
+};
+
+/**
+ * @brief Alternates between display error and home regularly.
+ *
+ */
+class DisplayErrorAlternating : public DisplayIntervalTick
+{
+public:
+    DisplayErrorAlternating(
+        LiquidCrystal_I2C &lcd, DisplayError &dispErr, DisplayHome &dispHome)
+        : DisplayIntervalTick(lcd, 2000), error(dispErr), home(dispHome){};
+
+    /**
+     * @brief Activates the error display first.
+     *
+     */
+    virtual void activate();
+
+    /**
+     * @brief Deactivates the current display (home or error)
+     *
+     */
+    virtual void deactivate();
+
+protected:
+    /**
+     * @brief Swaps beteen home and error.
+     *
+     */
+    virtual void intervalTick();
+
+private:
+    DisplayError error;
+    DisplayHome home;
+    bool showingHome;
+};
+
+enum DisplayIndex
+{
+    DISP_HOME,
+    DISP_TEMPERATURE,
+    DISP_ABOUT,
+    DISP_ERROR_SINGLE,
+    DISP_ERROR,
+    DISP_INVALID_INDEX = 255
 };
 
 /**
  * @brief All displays / screens that are being used.
- * 
+ *
  */
 class DisplayManager
 {
 public:
-    DisplayManager(LiquidCrystal_I2C &lcd) : about(lcd), temp(lcd), home(lcd) {};
-
-    DisplayAbout about;
-    DisplayWaterTemp temp;
-    DisplayHome home;
+    DisplayManager(LiquidCrystal_I2C &lcd)
+        : about(lcd), temp(lcd), home(lcd),
+          errorSingle(lcd), error(lcd, errorSingle, home){};
 
     /**
      * @brief Calls the tick function for each display.
-     * 
+     *
      */
     void tick();
 
-    void activateNext();
+    /**
+     * @brief Activates the next display that the user can cycle through using
+     * the button. If a different screen (like the error screen) is shown, then
+     * the home display is activated.
+     *
+     */
+    void next();
+
+    /**
+     * @brief Deactivates the current and activates the given display.
+     *
+     * @param next the index of the display to activate.
+     */
+    void activate(DisplayIndex next);
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     * @param state the new data.
+     */
+    virtual void updateData(State &state);
 
 private:
-    Display* const displays[3] = {&home, &temp, &about};
+    DisplayAbout about;
+    DisplayWaterTemp temp;
+    DisplayHome home;
+    DisplayError errorSingle;
+    DisplayErrorAlternating error;
+
+    Display *const displays[5] = {&home, &temp, &about, &errorSingle, &error};
     const int8_t VIEWABLE_DISPLAYS = 3; // When the display is not one on the viewable list.
-    int8_t currentIndex = 0;
+    uint8_t currentIndex = DISP_INVALID_INDEX;
 };

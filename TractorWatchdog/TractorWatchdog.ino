@@ -34,7 +34,8 @@ void setup()
     lcd.backlight();
 
     // Show some stuff
-    displays.about.activate();
+    // displays.activate(DISP_ABOUT);
+    displays.activate(DISP_ERROR);
 }
 
 void loop()

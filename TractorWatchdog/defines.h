@@ -20,5 +20,5 @@
 
 #define DEVICE_NAME F("Tractor Watchdog - Jotham Gates - 2023")
 #define DEVICE_URL F("github.com/jgOhYeah/TractorWatchdog")
-#define COMPILED_MSG F("Version " __VERSION__ ". Compiled " __DATE__)
+#define COMPILED_MSG F("Version " VERSION ". Compiled " __DATE__)
 

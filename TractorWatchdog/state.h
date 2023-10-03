@@ -11,9 +11,11 @@
 
 enum EngineState
 {
-    RUNNING = 0,
-    STOPPED = 1,
-    ERROR = 2
+    RUNNING,
+    STOPPED,
+    OVER_TEMP,
+    OVER_REV,
+    OIL_PRESSURE
 };
 
 struct State

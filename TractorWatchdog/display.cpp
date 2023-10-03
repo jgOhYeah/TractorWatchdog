@@ -36,7 +36,7 @@ void DisplayIntervalTick::tick()
 void DisplayIntervalTick::activate()
 {
     Display::activate();
-    previous = millis(); // Reset the interval to start now.
+    previous = millis() - interval; // Reset the interval to start now.
 }
 
 void DisplayAbout::activate()
@@ -51,10 +51,29 @@ void DisplayAbout::activate()
     lcd.print(DEVICE_URL);
 }
 
+void DisplayHome::activate()
+{
+    Display::activate();
+    // RPM
+    lcd.setCursor(13, 0);
+    lcd.print(F("rpm"));
+
+    // Battery voltage
+    lcd.setCursor(4, 1);
+    lcd.write('V');
+
+    // Temperature
+    lcd.setCursor(8, 1);
+    lcd.write('C');
+
+    // Trip hours
+    lcd.setCursor(15, 1);
+    lcd.write('h');
+}
+
 void DisplayAbout::intervalTick()
 {
     // The white on blue LCDs don't have the best update rate, so do fewer, larger jumps.
-    lcd.scrollDisplayLeft();
     lcd.scrollDisplayLeft();
     lcd.scrollDisplayLeft();
     lcd.scrollDisplayLeft();
@@ -81,17 +100,67 @@ void DisplayWaterTemp::activate()
     lcd.write('C');
 }
 
-void DisplayManager::tick()
+void DisplayError::activate()
 {
-    about.tick();
-    temp.tick();
-    home.tick();
+    Display::activate();
+    // Engine shutdown message.
+    lcd.setCursor(0, 0);
+    lcd.print(F("ENGINE SHUTDOWN!"));
+
+    // TODO: Error message / explanation
 }
 
-void DisplayManager::activateNext()
+void DisplayErrorAlternating::activate()
+{
+    DisplayIntervalTick::activate();
+    error.activate();
+    showingHome = false;
+}
+
+void DisplayErrorAlternating::deactivate()
+{
+    DisplayIntervalTick::deactivate();
+    if(showingHome)
+    {
+        home.deactivate();
+    }
+    else
+    {
+        error.deactivate();
+    }
+}
+
+void DisplayErrorAlternating::intervalTick()
+{
+    if(showingHome)
+    {
+        home.deactivate();
+        error.activate();
+    }
+    else
+    {
+        error.deactivate();
+        home.activate();
+    }
+    showingHome = !showingHome;
+}
+
+void DisplayManager::tick()
+{
+    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display*);
+    for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
+    {
+        displays[i]->tick();
+    }
+}
+
+void DisplayManager::next()
 {
     // Inform the display it is no longer in control.
-    displays[currentIndex]->deactivate();
+    if (currentIndex != DISP_INVALID_INDEX)
+    {
+        displays[currentIndex]->deactivate();
+    }
 
     // Increment the display. If this is a special display, then it will be
     // set to the home display.
@@ -103,4 +172,31 @@ void DisplayManager::activateNext()
 
     // Activate this display
     displays[currentIndex]->activate();
+}
+
+void DisplayManager::activate(DisplayIndex next)
+{
+    Serial.print(F("Activating display "));
+    Serial.print(next);
+    Serial.print(F(". Currently on "));
+    Serial.println(currentIndex);
+
+    // Deactivate the current display if there is an active one.
+    if (currentIndex != DISP_INVALID_INDEX)
+    {
+        displays[currentIndex]->deactivate();
+    }
+
+    // Activate the next
+    currentIndex = next;
+    displays[currentIndex]->activate();
+}
+
+void DisplayManager::updateData(State &state)
+{
+    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display*);
+    for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
+    {
+        displays[i]->updateData(state);
+    }
 }
