@@ -57,6 +57,8 @@ public:
      */
     virtual void updateData(){};
 
+    bool active;
+
 protected:
     /**
      * @brief Right justifies and prints a number to the display.
@@ -80,7 +82,6 @@ protected:
     void drawTenths(const int16_t number, const uint8_t intDigits, const char padding = ' ');
 
     LiquidCrystal_I2C &lcd;
-    bool active;
 };
 
 /**

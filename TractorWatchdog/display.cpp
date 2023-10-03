@@ -115,42 +115,39 @@ void DisplayHome::activate()
 
 void DisplayHome::drawState()
 {
-    if (active)
+    // Engine status
+    // The length of each string must be the same so that the remains of the
+    // previous isn't left behind.
+    lcd.setCursor(0, 0);
+    switch (state.engineState)
     {
-        // Engine status
-        // The length of each string must be the same so that the remains of the
-        // previous isn't left behind.
-        lcd.setCursor(0, 0);
-        switch (state.engineState)
-        {
-        case RUNNING:
-            lcd.print(F("Running  "));
-            break;
-        case STOPPED:
-            lcd.print(F("Stopped  "));
-            break;
-        default:
-            lcd.print(F("SHUTDOWN "));
-        }
-
-        // RPM
-        lcd.setCursor(9, 0);
-        rightJustify(state.rpm, 4);
-
-        // Battery voltage.
-        lcd.setCursor(0, 1);
-        drawTenths(state.voltage, 2);
-
-        // Temperature
-        lcd.setCursor(5, 1);
-        rightJustify(state.temperature, 3);
-
-        // Trip hours
-        lcd.setCursor(10, 1);
-        uint32_t hourTenths = (state.tripHours / 60) * 10; // Add the hours.
-        hourTenths += ((state.tripHours % 60) * 10) / 60;  // Add the minutes as tenths of an hour.
-        drawTenths(hourTenths, 3);
+    case RUNNING:
+        lcd.print(F("Running  "));
+        break;
+    case STOPPED:
+        lcd.print(F("Stopped  "));
+        break;
+    default:
+        lcd.print(F("SHUTDOWN "));
     }
+
+    // RPM
+    lcd.setCursor(9, 0);
+    rightJustify(state.rpm, 4);
+
+    // Battery voltage.
+    lcd.setCursor(0, 1);
+    drawTenths(state.voltage, 2);
+
+    // Temperature
+    lcd.setCursor(5, 1);
+    rightJustify(state.temperature, 3);
+
+    // Trip hours
+    lcd.setCursor(10, 1);
+    uint32_t hourTenths = (state.tripHours / 60) * 10; // Add the hours.
+    hourTenths += ((state.tripHours % 60) * 10) / 60;  // Add the minutes as tenths of an hour.
+    drawTenths(hourTenths, 3);
 }
 
 void DisplayAbout::intervalTick()
@@ -430,10 +427,16 @@ void DisplayManager::activate(DisplayIndex next)
 
 void DisplayManager::updateState()
 {
+    // Call updateData for each data point.
     const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display *);
     for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
     {
         displays[i]->updateData();
-        displays[i]->drawState();
+    }
+
+    // For the active display, call its function to draw the new data.
+    if (currentIndex != DISP_INVALID_INDEX)
+    {
+        displays[currentIndex]->drawState();
     }
 }
