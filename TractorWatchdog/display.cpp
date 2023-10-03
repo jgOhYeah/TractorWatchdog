@@ -55,11 +55,11 @@ void Display::rightJustify(const int32_t number, const uint8_t digits, const cha
     }
 }
 
-void Display::drawTenths(const int16_t number, const uint8_t intDigits, const char padding = ' ') 
+void Display::drawTenths(const int16_t number, const uint8_t intDigits, const char padding = ' ')
 {
     rightJustify(number / 10, intDigits, padding);
     lcd.write('.');
-    lcd.print(number%10);
+    lcd.print(number % 10);
 }
 
 void DisplayIntervalTick::tick()
@@ -111,8 +111,6 @@ void DisplayHome::activate()
     // Trip hours
     lcd.setCursor(15, 1);
     lcd.write('h');
-
-    drawState();
 }
 
 void DisplayHome::drawState()
@@ -150,7 +148,7 @@ void DisplayHome::drawState()
         // Trip hours
         lcd.setCursor(10, 1);
         uint32_t hourTenths = (state.tripHours / 60) * 10; // Add the hours.
-        hourTenths += ((state.tripHours % 60) * 10) / 60; // Add the minutes as tenths of an hour.
+        hourTenths += ((state.tripHours % 60) * 10) / 60;  // Add the minutes as tenths of an hour.
         drawTenths(hourTenths, 3);
     }
 }
@@ -164,9 +162,65 @@ void DisplayAbout::intervalTick()
     lcd.scrollDisplayLeft();
 }
 
+Graph::Graph(LiquidCrystal_I2C &lcd, uint8_t graphWidth) : lcd(lcd), graph(graphWidth, 0)
+{
+    // Mose well call begin in the constructor as only setting variables.
+    graph.begin(&lcd);
+    graph.filled = false;
+}
+
+void Graph::addData(int16_t data)
+{
+    lastPointAccumulator += data;
+    lastPoints++;
+
+    // Set max and mins
+    if (graph.length())
+    {
+        // There is data in the graph.
+        if (data < graph.yMin)
+        {
+            graph.yMin = data;
+        }
+        else
+        {
+            graph.yMax = data;
+        }
+    }
+    else
+    {
+        // No data in the graph. This is the new max and min.
+        graph.yMax = data;
+        graph.yMin = data;
+    }
+
+    // If we have enough points, plot.
+    if (lastPoints >= GRAPH_PLOT_EVERY)
+    {
+        addAveragePoint();
+    }
+}
+
+void Graph::addAveragePoint()
+{
+    graph.add(lastPointAccumulator / lastPoints);
+    lastPointAccumulator = 0;
+    lastPoints = 0;
+}
+
+void Graph::setRegisters()
+{
+    graph.setRegisters();
+}
+
+void Graph::display()
+{
+    graph.display(0, 1);
+}
+
 void DisplayWaterTemp::activate()
 {
-    DisplayIntervalTick::activate();
+    Display::activate();
     // Title
     lcd.setCursor(0, 0);
     lcd.print(F("Water Temp"));
@@ -177,11 +231,88 @@ void DisplayWaterTemp::activate()
 
     // LCDGraph
     graph.setRegisters();
-    graph.display(0, 1);
+    graph.display();
 
-    // Max and min temperature
+    // Max temperature
+    lcd.setCursor(9, 1);
+    lcd.print(F("Max"));
     lcd.setCursor(15, 1);
     lcd.write('C');
+}
+
+void DisplayWaterTemp::updateData()
+{
+    graph.addData(state.temperature);
+}
+
+void DisplayWaterTemp::drawState()
+{
+    // Current temperature
+    lcd.setCursor(12, 0);
+    rightJustify(state.temperature, 3);
+
+    // Graph (display has already been called).
+    graph.setRegisters();
+
+    // Max temperature
+    lcd.setCursor(12, 1);
+    rightJustify(graph.graph.yMax, 3);
+}
+
+void DisplayVoltage::activate()
+{
+    DisplayIntervalTick::activate();
+    // Title
+    lcd.setCursor(0, 0);
+    lcd.print(F("Battery"));
+
+    // Current voltage
+    lcd.setCursor(15, 0);
+    lcd.write('V');
+
+    // LCDGraph
+    graph.setRegisters();
+    graph.display();
+
+    // Max and min voltage
+    lcd.setCursor(15, 1);
+    lcd.write('V');
+}
+
+void DisplayVoltage::updateData()
+{
+    graph.addData(state.voltage);
+}
+
+void DisplayVoltage::drawState()
+{
+    // Current temperature
+    lcd.setCursor(11, 0);
+    drawTenths(state.voltage, 2);
+
+    // Graph (display has already been called).
+    graph.setRegisters();
+
+    // Max and min temperature
+    lcd.setCursor(9, 1);
+    if (maxShown)
+    {
+        // Draw the maximum temperature.
+        lcd.print(F("Max "));
+        drawTenths(graph.graph.yMax, 2);
+    }
+    else
+    {
+        // Draw the minimum temperature.
+        lcd.print(F("Min "));
+        drawTenths(graph.graph.yMin, 2);
+    }
+}
+
+void DisplayVoltage::intervalTick()
+{
+    maxShown = !maxShown;
+    drawState();
 }
 
 void DisplayError::activate()
@@ -194,24 +325,24 @@ void DisplayError::activate()
     lcd.setCursor(0, 1);
     switch (state.engineState)
     {
-        case STOPPED:
-        case RUNNING:
-            // Shouldn't be errors for these, but just in case.
-            lcd.print(F("Stopped/running?"));
-            break;
-        case OVER_TEMP:
-            lcd.print(F("Over temp " xstr(LIMIT_TEMPERATURE) "C"));
-            break;
-        case OVER_REV:
-            lcd.print(F("Over rev " xstr(LIMIT_REVS) "rpm"));
-            break;
-        case OIL_PRESSURE:
-            lcd.print(F("No oil pressure!"));
-            break;
-        default:
-            // In case an extra error state is added but not entered here.
-            lcd.print(F("Indescibable "));
-            lcd.print(state.engineState);
+    case STOPPED:
+    case RUNNING:
+        // Shouldn't be errors for these, but just in case.
+        lcd.print(F("I'm confused :)"));
+        break;
+    case OVER_TEMP:
+        lcd.print(F("Over temp " xstr(LIMIT_TEMPERATURE) "C"));
+        break;
+    case OVER_REV:
+        lcd.print(F("Over rev " xstr(LIMIT_REVS) "rpm"));
+        break;
+    case OIL_PRESSURE:
+        lcd.print(F("No oil pressure!"));
+        break;
+    default:
+        // In case an extra error state is added but not entered here.
+        lcd.print(F("Indescibable "));
+        lcd.print(state.engineState);
     }
 }
 
@@ -297,11 +428,12 @@ void DisplayManager::activate(DisplayIndex next)
     displays[currentIndex]->activate();
 }
 
-void DisplayManager::drawState()
+void DisplayManager::updateState()
 {
     const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display *);
     for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
     {
+        displays[i]->updateData();
         displays[i]->drawState();
     }
 }

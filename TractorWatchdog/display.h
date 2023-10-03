@@ -45,11 +45,17 @@ public:
 
     /**
      * @brief Called whenever data that the system might have on the screen is
-     * updated.
+     * updated. Also called upon activating the state.
      *
      * @param state the new data.
      */
     virtual void drawState(){};
+
+    /**
+     * @brief Called whenever there is a new state available.
+     *
+     */
+    virtual void updateData(){};
 
 protected:
     /**
@@ -63,10 +69,10 @@ protected:
 
     /**
      * @brief Prints a number in tenths.
-     * 
+     *
      * Note the issues with leaving out zeros in the tenths position if you
      * attempt to use this for hundreds.
-     * 
+     *
      * @param number the number to print in tenths.
      * @param intDigits the number of digits on the integer side.
      * @param padding the character to pad with.
@@ -159,31 +165,66 @@ public:
      * @brief Called whenever data that the system might have on the screen is
      * updated.
      *
-     * @param state the new data.
      */
     virtual void drawState();
+};
+
+/**
+ * @brief Base class for displays with a graph.
+ *
+ */
+class Graph
+{
+public:
+    Graph(LiquidCrystal_I2C &lcd, uint8_t graphWidth);
+
+    /**
+     * @brief Adds a datapoint to be averaged. The max and min is also set using
+     * these.
+     *
+     * If there are more than GRAPH_PLOT_EVERY points, then add to the graph.
+     *
+     * @param data the point to add.
+     */
+    void addData(int16_t data);
+
+    /**
+     * @brief Sets the registers and draws the graph on the screen.
+     *
+     */
+    void setRegisters();
+
+    /**
+     * @brief Draws the graph in the bottom left corner.
+     *
+     * @code setRegisters() @endcode needs to be called separetely.
+     *
+     */
+    void display();
+
+    LCDGraph<int16_t, LiquidCrystal_I2C> graph;
+
+protected:
+    /**
+     * @brief Averages the points since this was last called and adds this to
+     * the graph.
+     *
+     */
+    void addAveragePoint();
+
+    LiquidCrystal_I2C &lcd;
+    int32_t lastPointAccumulator = 0;
+    uint16_t lastPoints = 0;
 };
 
 /**
  * @brief Class for the water temperature
  *
  */
-class DisplayWaterTemp : public DisplayIntervalTick
+class DisplayWaterTemp : public Display
 {
 public:
-    DisplayWaterTemp(LiquidCrystal_I2C &lcd) : DisplayIntervalTick(lcd, 2000), graph(8, 0) {}
-
-    /**
-     * @brief Starts the graph.
-     *
-     */
-    void begin()
-    {
-        graph.begin(&lcd);
-        graph.yMin = 0;
-        graph.yMax = 110;
-        graph.filled = false;
-    }
+    DisplayWaterTemp(LiquidCrystal_I2C &lcd) : Display(lcd), graph(lcd, 8) {}
 
     /**
      * @brief Draws the display as the current one on the screen.
@@ -191,10 +232,67 @@ public:
      */
     virtual void activate();
 
-    LCDGraph<int16_t, LiquidCrystal_I2C> graph;
+    /**
+     * @brief Called whenever there is a new state available.
+     *
+     * Updates the graph, max and min.
+     *
+     */
+    virtual void updateData();
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     */
+    virtual void drawState();
 
 private:
     bool maxShown = true;
+    Graph graph;
+};
+
+/**
+ * @brief Class for the water temperature
+ *
+ */
+class DisplayVoltage : public DisplayIntervalTick
+{
+public:
+    DisplayVoltage(LiquidCrystal_I2C &lcd) : DisplayIntervalTick(lcd, 2000), graph(lcd, 6) {}
+
+    /**
+     * @brief Draws the display as the current one on the screen.
+     *
+     */
+    virtual void activate();
+
+    /**
+     * @brief Called whenever there is a new state available.
+     *
+     * Updates the graph, max and min.
+     *
+     */
+    virtual void updateData();
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     */
+    virtual void drawState();
+
+    /**
+     * @brief Method that is called on the interval tick.
+     *
+     * Swaps between max and min voltage
+     *
+     */
+    virtual void intervalTick();
+
+private:
+    bool maxShown = true;
+    Graph graph;
 };
 
 /**
@@ -211,6 +309,13 @@ public:
      *
      */
     virtual void activate();
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     */
+    virtual void drawState();
 };
 
 /**
@@ -267,7 +372,7 @@ class DisplayManager
 {
 public:
     DisplayManager(LiquidCrystal_I2C &lcd)
-        : about(lcd), temp(lcd), home(lcd),
+        : about(lcd), temp(lcd), voltage(lcd), home(lcd),
           errorSingle(lcd), error(lcd, errorSingle, home){};
 
     /**
@@ -292,20 +397,21 @@ public:
     void activate(DisplayIndex next);
 
     /**
-     * @brief Called to draw data from the current state. This is also called upon activation.
+     * @brief Called to update data from the current state.
      *
      * @param state the new data.
      */
-    virtual void drawState();
+    virtual void updateState();
 
 private:
     DisplayAbout about;
     DisplayWaterTemp temp;
     DisplayHome home;
+    DisplayVoltage voltage;
     DisplayError errorSingle;
     DisplayErrorAlternating error;
 
-    Display *const displays[5] = {&home, &temp, &about, &errorSingle, &error};
-    const int8_t VIEWABLE_DISPLAYS = 3; // When the display is not one on the viewable list.
+    Display *const displays[6] = {&home, &temp, &voltage, &about, &errorSingle, &error};
+    const int8_t VIEWABLE_DISPLAYS = 4; // When the display is not one on the viewable list.
     uint8_t currentIndex = DISP_INVALID_INDEX;
 };
