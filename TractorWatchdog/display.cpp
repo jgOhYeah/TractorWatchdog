@@ -35,7 +35,7 @@ void Display::rightJustify(const int32_t number, const uint8_t digits, const cha
     {
         // Not enough room to print the number
         Serial.print(F("Number is too long to print"));
-        // NOTE: Assumbes that the number is positive and there are at least 2 digits
+        // NOTE: Assumes that the number is positive and there are at least 2 digits
         lcd.write('>');
         for (uint8_t i = 1; i < digits; i++)
         {
