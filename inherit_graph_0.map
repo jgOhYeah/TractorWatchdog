@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="5,81,76,108"/>
+<area shape="rect" id="node2" href="$class_display_error.html" title="Display that shows an error message on the screen." alt="" coords="147,5,249,32"/>
+<area shape="rect" id="node3" href="$class_display_home.html" title="Class for the main home screen of the display." alt="" coords="143,56,253,83"/>
+<area shape="rect" id="node4" href="$class_display_interval_tick.html" title="Adds an interval based tick to the display class. The interval is reset whenever the display is activ..." alt="" coords="124,107,272,133"/>
+<area shape="rect" id="node8" href="$class_display_water_temp.html" title="Class for the water temperature." alt="" coords="126,157,270,184"/>
+<area shape="rect" id="node5" href="$class_display_about.html" title="A simple about page that shows more info on the unit." alt="" coords="353,56,462,83"/>
+<area shape="rect" id="node6" href="$class_display_error_alternating.html" title="Alternates between display error and home regularly." alt="" coords="320,107,495,133"/>
+<area shape="rect" id="node7" href="$class_display_voltage.html" title="Class for the water temperature." alt="" coords="347,157,467,184"/>
+</map>

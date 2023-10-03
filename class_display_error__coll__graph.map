@@ -1,0 +1,4 @@
+<map id="DisplayError" name="DisplayError">
+<area shape="rect" id="node1" title="Display that shows an error message on the screen." alt="" coords="5,80,108,107"/>
+<area shape="rect" id="node2" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="21,5,92,32"/>
+</map>

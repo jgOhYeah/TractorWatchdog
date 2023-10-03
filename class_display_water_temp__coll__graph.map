@@ -1,0 +1,4 @@
+<map id="DisplayWaterTemp" name="DisplayWaterTemp">
+<area shape="rect" id="node1" title="Class for the water temperature." alt="" coords="5,80,149,107"/>
+<area shape="rect" id="node2" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="42,5,113,32"/>
+</map>

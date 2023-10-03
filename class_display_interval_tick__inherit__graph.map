@@ -1,0 +1,7 @@
+<map id="DisplayIntervalTick" name="DisplayIntervalTick">
+<area shape="rect" id="node1" title="Adds an interval based tick to the display class. The interval is reset whenever the display is activ..." alt="" coords="153,80,301,107"/>
+<area shape="rect" id="node3" href="$class_display_about.html" title="A simple about page that shows more info on the unit." alt="" coords="5,155,115,181"/>
+<area shape="rect" id="node4" href="$class_display_error_alternating.html" title="Alternates between display error and home regularly." alt="" coords="139,155,314,181"/>
+<area shape="rect" id="node5" href="$class_display_voltage.html" title="Class for the water temperature." alt="" coords="339,155,459,181"/>
+<area shape="rect" id="node2" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="191,5,262,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="DisplayAbout" name="DisplayAbout">
+<area shape="rect" id="node1" title="A simple about page that shows more info on the unit." alt="" coords="25,155,134,181"/>
+<area shape="rect" id="node2" href="$class_display_interval_tick.html" title="Adds an interval based tick to the display class. The interval is reset whenever the display is activ..." alt="" coords="5,80,153,107"/>
+<area shape="rect" id="node3" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="44,5,115,32"/>
+</map>
