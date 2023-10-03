@@ -20,6 +20,8 @@ LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_COLS, LCD_ROWS);
 // LCDGraph<int16_t, LiquidCrystal_I2C> battGraph(6, 0);
 // LCDGraph<int16_t, LiquidCrystal_I2C> rpmGraph(8, 0);
 
+State state;
+
 DisplayManager displays(lcd);
 
 void setup()
@@ -35,6 +37,12 @@ void setup()
 
     // Show some stuff
     // displays.activate(DISP_ABOUT);
+    state.engineState = OIL_PRESSURE;
+    state.rpm = 1876;
+    state.temperature = 86;
+    state.totalHours = 36000;
+    state.tripHours = 3600;
+    state.voltage = 138;
     displays.activate(DISP_ERROR);
 }
 

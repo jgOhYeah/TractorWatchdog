@@ -49,9 +49,30 @@ public:
      *
      * @param state the new data.
      */
-    virtual void updateData(State &state){};
+    virtual void drawState(){};
 
 protected:
+    /**
+     * @brief Right justifies and prints a number to the display.
+     *
+     * @param number the number to print.
+     * @param digits the number of digits.
+     * @param padding the character to pad with.
+     */
+    void rightJustify(const int32_t number, const uint8_t digits, const char padding = ' ');
+
+    /**
+     * @brief Prints a number in tenths.
+     * 
+     * Note the issues with leaving out zeros in the tenths position if you
+     * attempt to use this for hundreds.
+     * 
+     * @param number the number to print in tenths.
+     * @param intDigits the number of digits on the integer side.
+     * @param padding the character to pad with.
+     */
+    void drawTenths(const int16_t number, const uint8_t intDigits, const char padding = ' ');
+
     LiquidCrystal_I2C &lcd;
     bool active;
 };
@@ -133,6 +154,14 @@ public:
      *
      */
     virtual void activate();
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     * @param state the new data.
+     */
+    virtual void drawState();
 };
 
 /**
@@ -263,12 +292,11 @@ public:
     void activate(DisplayIndex next);
 
     /**
-     * @brief Called whenever data that the system might have on the screen is
-     * updated.
+     * @brief Called to draw data from the current state. This is also called upon activation.
      *
      * @param state the new data.
      */
-    virtual void updateData(State &state);
+    virtual void drawState();
 
 private:
     DisplayAbout about;

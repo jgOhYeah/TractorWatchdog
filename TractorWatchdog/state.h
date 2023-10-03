@@ -9,6 +9,10 @@
 
 #pragma once
 
+/**
+ * @brief The current engine state.
+ * 
+ */
 enum EngineState
 {
     RUNNING,
@@ -18,12 +22,16 @@ enum EngineState
     OIL_PRESSURE
 };
 
+/**
+ * @brief Struct to hold the current state and parameters of the vehicle.
+ * 
+ */
 struct State
 {
     int16_t temperature;
     uint8_t voltage;
     uint32_t tripHours;
     uint32_t totalHours;
-    uint16_t engineSpeed;
+    uint16_t rpm;
     EngineState engineState;
 };

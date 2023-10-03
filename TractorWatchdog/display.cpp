@@ -8,16 +8,58 @@
  */
 #include "display.h"
 
+extern State state;
+
 void Display::activate()
 {
     // Things that should happen for every display.
     lcd.clear();
     active = true;
+    drawState();
 }
 
 void Display::deactivate()
 {
     active = false;
+}
+
+void Display::rightJustify(const int32_t number, const uint8_t digits, const char padding = ' ')
+{
+    // Convert to a string
+    char charBuf[12];
+    ltoa(number, charBuf, 10);
+
+    // Print out padding for each column not used.
+    int8_t unusedDigits = digits - strlen(charBuf);
+    if (unusedDigits < 0)
+    {
+        // Not enough room to print the number
+        Serial.print(F("Number is too long to print"));
+        // NOTE: Assumbes that the number is positive and there are at least 2 digits
+        lcd.write('>');
+        for (uint8_t i = 1; i < digits; i++)
+        {
+            lcd.write('9');
+        }
+    }
+    else
+    {
+        while (unusedDigits > 0)
+        {
+            lcd.write(padding);
+            unusedDigits--;
+        }
+
+        // Finally print the number.
+        lcd.print(charBuf);
+    }
+}
+
+void Display::drawTenths(const int16_t number, const uint8_t intDigits, const char padding = ' ') 
+{
+    rightJustify(number / 10, intDigits, padding);
+    lcd.write('.');
+    lcd.print(number%10);
 }
 
 void DisplayIntervalTick::tick()
@@ -69,6 +111,48 @@ void DisplayHome::activate()
     // Trip hours
     lcd.setCursor(15, 1);
     lcd.write('h');
+
+    drawState();
+}
+
+void DisplayHome::drawState()
+{
+    if (active)
+    {
+        // Engine status
+        // The length of each string must be the same so that the remains of the
+        // previous isn't left behind.
+        lcd.setCursor(0, 0);
+        switch (state.engineState)
+        {
+        case RUNNING:
+            lcd.print(F("Running  "));
+            break;
+        case STOPPED:
+            lcd.print(F("Stopped  "));
+            break;
+        default:
+            lcd.print(F("SHUTDOWN "));
+        }
+
+        // RPM
+        lcd.setCursor(9, 0);
+        rightJustify(state.rpm, 4);
+
+        // Battery voltage.
+        lcd.setCursor(0, 1);
+        drawTenths(state.voltage, 2);
+
+        // Temperature
+        lcd.setCursor(5, 1);
+        rightJustify(state.temperature, 3);
+
+        // Trip hours
+        lcd.setCursor(10, 1);
+        uint32_t hourTenths = (state.tripHours / 60) * 10; // Add the hours.
+        hourTenths += ((state.tripHours % 60) * 10) / 60; // Add the minutes as tenths of an hour.
+        drawTenths(hourTenths, 3);
+    }
 }
 
 void DisplayAbout::intervalTick()
@@ -107,7 +191,28 @@ void DisplayError::activate()
     lcd.setCursor(0, 0);
     lcd.print(F("ENGINE SHUTDOWN!"));
 
-    // TODO: Error message / explanation
+    lcd.setCursor(0, 1);
+    switch (state.engineState)
+    {
+        case STOPPED:
+        case RUNNING:
+            // Shouldn't be errors for these, but just in case.
+            lcd.print(F("Stopped/running?"));
+            break;
+        case OVER_TEMP:
+            lcd.print(F("Over temp " xstr(LIMIT_TEMPERATURE) "C"));
+            break;
+        case OVER_REV:
+            lcd.print(F("Over rev " xstr(LIMIT_REVS) "rpm"));
+            break;
+        case OIL_PRESSURE:
+            lcd.print(F("No oil pressure!"));
+            break;
+        default:
+            // In case an extra error state is added but not entered here.
+            lcd.print(F("Indescibable "));
+            lcd.print(state.engineState);
+    }
 }
 
 void DisplayErrorAlternating::activate()
@@ -120,7 +225,7 @@ void DisplayErrorAlternating::activate()
 void DisplayErrorAlternating::deactivate()
 {
     DisplayIntervalTick::deactivate();
-    if(showingHome)
+    if (showingHome)
     {
         home.deactivate();
     }
@@ -132,7 +237,7 @@ void DisplayErrorAlternating::deactivate()
 
 void DisplayErrorAlternating::intervalTick()
 {
-    if(showingHome)
+    if (showingHome)
     {
         home.deactivate();
         error.activate();
@@ -147,7 +252,7 @@ void DisplayErrorAlternating::intervalTick()
 
 void DisplayManager::tick()
 {
-    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display*);
+    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display *);
     for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
     {
         displays[i]->tick();
@@ -192,11 +297,11 @@ void DisplayManager::activate(DisplayIndex next)
     displays[currentIndex]->activate();
 }
 
-void DisplayManager::updateData(State &state)
+void DisplayManager::drawState()
 {
-    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display*);
+    const uint8_t DISPLAY_COUNT = sizeof(displays) / sizeof(Display *);
     for (uint8_t i = 0; i < DISPLAY_COUNT; i++)
     {
-        displays[i]->updateData(state);
+        displays[i]->drawState();
     }
 }
