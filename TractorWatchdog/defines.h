@@ -19,6 +19,6 @@
 #define SERIAL_BAUD 38400
 
 #define DEVICE_NAME F("Tractor Watchdog - Jotham Gates - 2023")
-#define DEVICE_URL F("https://github.com/jgOhYeah/TractorWatchdog")
+#define DEVICE_URL F("github.com/jgOhYeah/TractorWatchdog")
 #define COMPILED_MSG F("Version " __VERSION__ ". Compiled " __DATE__)
 
