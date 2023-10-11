@@ -34,3 +34,5 @@ fp-info-cache
 
 ## FreeCAD backups
 *.FCBak
+*.gcode
+*.3mf
