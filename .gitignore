@@ -32,6 +32,10 @@ fp-info-cache
 *.xml
 *.csv
 
+# Other KICAD files
+\#auto_saved_files\#
+~*.lck
+
 ## FreeCAD backups
 *.FCBak
 *.gcode
