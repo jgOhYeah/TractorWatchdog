@@ -260,7 +260,7 @@ private:
 class DisplayVoltage : public DisplayIntervalTick
 {
 public:
-    DisplayVoltage(LiquidCrystal_I2C &lcd) : DisplayIntervalTick(lcd, 2000), graph(lcd, 6) {}
+    DisplayVoltage(LiquidCrystal_I2C &lcd) : DisplayIntervalTick(lcd, 4000), graph(lcd, 6) {}
 
     /**
      * @brief Draws the display as the current one on the screen.

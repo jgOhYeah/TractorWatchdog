@@ -1,5 +1,5 @@
 /**
- * @file display.h
+ * @file display.cpp
  * @brief Header file for the display classes.
  *
  * @author Jotham Gates
@@ -91,6 +91,13 @@ void DisplayAbout::activate()
     // Bottom row
     lcd.setCursor(4, 1);
     lcd.print(DEVICE_URL);
+
+    // Dodgy offset the display so that the first scroll puts it in the correct
+    // starting position. // TODO: Fix
+    lcd.scrollDisplayRight();
+    lcd.scrollDisplayRight();
+    lcd.scrollDisplayRight();
+    lcd.scrollDisplayRight();
 }
 
 void DisplayHome::activate()
@@ -291,7 +298,7 @@ void DisplayVoltage::drawState()
     graph.setRegisters();
 
     // Max and min temperature
-    lcd.setCursor(9, 1);
+    lcd.setCursor(7, 1);
     if (maxShown)
     {
         // Draw the maximum temperature.
@@ -318,7 +325,10 @@ void DisplayError::activate()
     // Engine shutdown message.
     lcd.setCursor(0, 0);
     lcd.print(F("ENGINE SHUTDOWN!"));
+}
 
+void DisplayError::drawState()
+{
     lcd.setCursor(0, 1);
     switch (state.engineState)
     {
@@ -338,8 +348,14 @@ void DisplayError::activate()
         break;
     default:
         // In case an extra error state is added but not entered here.
-        lcd.print(F("Indescibable "));
+        lcd.print(F("Something else"));
         lcd.print(state.engineState);
+    }
+
+    // Write some spaces to wipe out any remaining text from a previous error.
+    for(uint8_t i = 0; i < 16; i++)
+    {
+        lcd.write(' ');
     }
 }
 
