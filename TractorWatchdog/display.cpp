@@ -186,7 +186,7 @@ void Graph::addData(int16_t data)
         {
             graph.yMin = data;
         }
-        else
+        if (data > graph.yMax)
         {
             graph.yMax = data;
         }

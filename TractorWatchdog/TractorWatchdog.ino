@@ -13,20 +13,19 @@
 #include "display.h"
 #include "button.h"
 #include "sensors.h"
+#include "motor.h"
 
 // Constructors
 #define LCD_ADDRESS 0x27
 #define LCD_ROWS 2
 #define LCD_COLS 16
 LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_COLS, LCD_ROWS);
-// LCDGraph<int16_t, LiquidCrystal_I2C> battGraph(6, 0);
-// LCDGraph<int16_t, LiquidCrystal_I2C> rpmGraph(8, 0);
 
 State state;
-
 DisplayManager displays(lcd);
 Button button(PIN_BUTTON);
 SensorManager sensors;
+Motor motor;
 
 // Variables for rpm measurement
 volatile uint32_t rpmCurTime = 0;
@@ -39,6 +38,9 @@ void setup()
     Serial.println(DEVICE_NAME);
     Serial.println(DEVICE_URL);
     Serial.println(COMPILED_MSG);
+
+    // Motor initialisation
+    motor.run();
 
     // Setup the sensors and states
     state.engineState = STOPPED;
@@ -55,24 +57,42 @@ void setup()
     // Setup the button
     button.begin();
     // Show some stuff
-    displays.updateState(); // Write the status for the max and min.
-    displays.activate(DISP_ERROR);
+    displays.activate(DISP_INIT);
+
+    // TODO: Show hours on startup
 }
 
 void loop()
 {
+    // Swap from the init display to home screen if needed.
+    uint32_t curTime = millis();
+    if (curTime > STARTUP_DELAY && displays.currentIndex == DISP_INIT)
+    {
+        // Still on the init display and time to move on.
+        displays.activate(DISP_HOME);
+    }
+
     // Update all the displays.
     displays.tick();
     button.check();
     sensors.tick();
 
     // Update the sensors every so often.
-    static uint32_t prevTime = 0;
-    uint32_t curTime = millis();
+    static uint32_t prevTime = curTime - SENSOR_UPDATE_INTERVAL-1; // Run first time
     if (curTime - prevTime > SENSOR_UPDATE_INTERVAL)
     {
         prevTime = curTime;
+        // Get new data
         sensors.addState();
+
+        // Check if there are issues
+        if (!state.updateEngineState())
+        {
+            // There were.
+            motor.shutdown();
+            displays.activate(DISP_ERROR);
+
+        }
         displays.updateState();
     }
 }
@@ -115,6 +135,5 @@ void rpmInterrupt()
         rpmPrevTime = rpmCurTime;
         rpmCurTime = now;
         rpmRotationFlag = true;
-        Serial.println("ISR");
     }
 }

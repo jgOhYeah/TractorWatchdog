@@ -109,7 +109,7 @@ public:
      * 
      * Resets the rpm to 0 if so. 
      */
-    // virtual void addState();
+    virtual void addState();
 };
 
 /**
@@ -142,5 +142,5 @@ public:
     SensorTemperature temperature;
     SensorRPM rpm;
 
-    Sensor *const sensors[4] = {&battery, &temperature, &temperature, &rpm};
+    Sensor *const sensors[4] = {&battery, &oil, &temperature, &rpm};
 };

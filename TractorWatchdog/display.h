@@ -359,9 +359,11 @@ enum DisplayIndex
 {
     DISP_HOME,
     DISP_TEMPERATURE,
+    DISP_VOLTAGE,
     DISP_ABOUT,
     DISP_ERROR_SINGLE,
     DISP_ERROR,
+    DISP_INIT,
     DISP_INVALID_INDEX = 255
 };
 
@@ -404,6 +406,12 @@ public:
      */
     virtual void updateState();
 
+    /**
+     * @brief Don't set this directly. Instead use activate() or next().
+     * 
+     */
+    uint8_t currentIndex = DISP_INVALID_INDEX;
+
 private:
     DisplayAbout about;
     DisplayWaterTemp temp;
@@ -412,7 +420,6 @@ private:
     DisplayError errorSingle;
     DisplayErrorAlternating error;
 
-    Display *const displays[6] = {&home, &temp, &voltage, &about, &errorSingle, &error};
+    Display *const displays[7] = {&home, &temp, &voltage, &about, &errorSingle, &error, &about};
     const int8_t VIEWABLE_DISPLAYS = 4; // When the display is not one on the viewable list.
-    uint8_t currentIndex = DISP_INVALID_INDEX;
 };

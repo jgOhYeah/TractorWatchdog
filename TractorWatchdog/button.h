@@ -33,7 +33,7 @@ public:
 
 private:
     const uint8_t pin;
-    bool isPressed;
+    bool isPressed = false;
     uint32_t lastPressedTime;
     uint32_t pressStartTime;
 };

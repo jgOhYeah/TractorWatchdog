@@ -26,7 +26,7 @@ void SensorOil::begin()
 
 void SensorOil::addState()
 {
-    state.oilPressure = digitalRead(PIN_OIL_SW);
+    state.oilPressure = digitalRead(PIN_OIL_SW); // TODO: Will be the opposite in the real version.
 }
 
 void SensorTemperature::addState()
@@ -56,18 +56,18 @@ void SensorRPM::tick()
     }
 }
 
-// void SensorRPM::addState()
-// {
-//     // Check if there hasn't been a rotation for a while.
-//     noInterrupts();
-//     uint32_t elapsed = micros() - rpmCurTime;
-//     interrupts();
-//     if (elapsed > 5000)
-//     {
-//         // Assume the RPM is 0.
-//         state.rpm = 0;
-//     }
-// }
+void SensorRPM::addState()
+{
+    // Check if there hasn't been a rotation for a while.
+    noInterrupts();
+    uint32_t elapsed = micros() - rpmCurTime;
+    interrupts();
+    if (elapsed > 5000000)
+    {
+        // Assume the RPM is 0.
+        state.rpm = 0;
+    }
+}
 
 void SensorManager::begin()
 {

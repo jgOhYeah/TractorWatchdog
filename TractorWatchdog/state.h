@@ -8,6 +8,7 @@
  */
 
 #pragma once
+#include "display.h"
 
 /**
  * @brief The current engine state.
@@ -26,8 +27,9 @@ enum EngineState
  * @brief Struct to hold the current state and parameters of the vehicle.
  *
  */
-struct State
+class State
 {
+public:
     int16_t temperature;
     uint8_t voltage;
     uint32_t tripHours;
@@ -35,4 +37,13 @@ struct State
     uint16_t rpm;
     bool oilPressure; // True if there is pressure.
     EngineState engineState;
+
+    /**
+     * @brief Updates the engineState attribute from the other state attributes.
+     * 
+     * @return true if everything is ok.
+     * @return false if there is an issue (only returned on the first issue, all
+     *               issues need to be cleared before this can go true again).
+     */
+    bool updateEngineState();
 };

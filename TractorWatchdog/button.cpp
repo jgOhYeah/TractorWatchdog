@@ -18,7 +18,7 @@ void Button::begin()
 
 void Button::check()
 {
-    bool curPressed = digitalRead(pin);
+    bool curPressed = !digitalRead(pin);
     uint32_t curTime = millis();
 
     if (curPressed)
