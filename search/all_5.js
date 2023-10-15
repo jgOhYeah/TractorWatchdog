@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next_22',['next',['../class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d',1,'DisplayManager']]]
+  ['graph_27',['Graph',['../class_graph.html',1,'']]]
 ];

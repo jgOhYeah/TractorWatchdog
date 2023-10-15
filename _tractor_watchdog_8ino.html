@@ -78,19 +78,21 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="defines_8h_source.html">defines.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="display_8h_source.html">display.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="button_8h_source.html">button.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TractorWatchdog.ino:</div>
 <div class="dyncontent">
 <div class="center"><img src="_tractor_watchdog_8ino__incl.png" border="0" usemap="#a_tractor_watchdog_2_tractor_watchdog_8ino" alt=""/></div>
 <map name="a_tractor_watchdog_2_tractor_watchdog_8ino" id="a_tractor_watchdog_2_tractor_watchdog_8ino">
-<area shape="rect" title="Main code for the Tractor Enginge Watchdog." alt="" coords="115,5,382,32"/>
+<area shape="rect" title="Main code for the Tractor Enginge Watchdog." alt="" coords="77,5,343,32"/>
 <area shape="rect" href="defines_8h.html" title="Pin and other definitions." alt="" coords="169,155,251,181"/>
-<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="248,80,327,107"/>
+<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="272,80,351,107"/>
+<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="172,80,248,107"/>
 <area shape="rect" title=" " alt="" coords="5,229,89,256"/>
 <area shape="rect" title=" " alt="" coords="114,229,178,256"/>
 <area shape="rect" title=" " alt="" coords="202,229,349,256"/>
 <area shape="rect" title=" " alt="" coords="373,229,471,256"/>
-<area shape="rect" href="state_8h.html" title="A class for the current system state." alt="" coords="275,155,342,181"/>
+<area shape="rect" href="state_8h.html" title="A class for the current system state." alt="" coords="278,155,345,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -117,6 +119,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top"><a id="afe461d27b9c48d5921c00d521181f12f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> ()</td></tr>
 <tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3711f0dbe10cb1f7547dab1d3f017576"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_tractor_watchdog_8ino.html#a3711f0dbe10cb1f7547dab1d3f017576">btnLongPress</a> ()</td></tr>
+<tr class="memdesc:a3711f0dbe10cb1f7547dab1d3f017576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle long button presses.  <a href="_tractor_watchdog_8ino.html#a3711f0dbe10cb1f7547dab1d3f017576">More...</a><br /></td></tr>
+<tr class="separator:a3711f0dbe10cb1f7547dab1d3f017576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb9eabebcbdffc01d8696e54f8942ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_tractor_watchdog_8ino.html#adb9eabebcbdffc01d8696e54f8942ebd">btnShortPress</a> ()</td></tr>
+<tr class="memdesc:adb9eabebcbdffc01d8696e54f8942ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to handle short button presses.  <a href="_tractor_watchdog_8ino.html#adb9eabebcbdffc01d8696e54f8942ebd">More...</a><br /></td></tr>
+<tr class="separator:adb9eabebcbdffc01d8696e54f8942ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -126,6 +134,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ad708ac64104b8125e9b75a0f6557a63c"><td class="memItemLeft" align="right" valign="top"><a id="ad708ac64104b8125e9b75a0f6557a63c"></a>
 <a class="el" href="class_display_manager.html">DisplayManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>displays</b> (lcd)</td></tr>
 <tr class="separator:ad708ac64104b8125e9b75a0f6557a63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af415727e411b5b52389c2696dba9d249"><td class="memItemLeft" align="right" valign="top"><a id="af415727e411b5b52389c2696dba9d249"></a>
+<a class="el" href="class_button.html">Button</a>&#160;</td><td class="memItemRight" valign="bottom"><b>button</b> (PIN_BUTTON)</td></tr>
+<tr class="separator:af415727e411b5b52389c2696dba9d249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main code for the Tractor Enginge Watchdog. </p>
@@ -133,7 +144,48 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Jotham Gates </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-10-02 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3711f0dbe10cb1f7547dab1d3f017576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3711f0dbe10cb1f7547dab1d3f017576">&#9670;&nbsp;</a></span>btnLongPress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void btnLongPress </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to handle long button presses. </p>
+<p>This resets the trip time. </p>
+
+</div>
+</div>
+<a id="adb9eabebcbdffc01d8696e54f8942ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb9eabebcbdffc01d8696e54f8942ebd">&#9670;&nbsp;</a></span>btnShortPress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void btnShortPress </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to handle short button presses. </p>
+<p>This changes screens shown. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

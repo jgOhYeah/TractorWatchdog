@@ -1,4 +1,5 @@
 <map id="TractorWatchdog/display.h" name="TractorWatchdog/display.h">
-<area shape="rect" id="node1" title="Header file for the display classes." alt="" coords="43,5,234,32"/>
-<area shape="rect" id="node2" href="$_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="5,80,272,107"/>
+<area shape="rect" id="node1" title="Header file for the display classes." alt="" coords="144,5,335,32"/>
+<area shape="rect" id="node2" href="$display_8cpp.html" title="Header file for the display classes." alt="" coords="5,80,212,107"/>
+<area shape="rect" id="node3" href="$_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="237,80,503,107"/>
 </map>

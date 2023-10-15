@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setregisters_59',['setRegisters',['../class_graph.html#ada273130a49b53413adccacca9987fb5',1,'Graph']]]
+  ['next_73',['next',['../class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d',1,'DisplayManager']]]
 ];

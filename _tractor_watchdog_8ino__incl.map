@@ -1,10 +1,11 @@
 <map id="TractorWatchdog/TractorWatchdog.ino" name="TractorWatchdog/TractorWatchdog.ino">
-<area shape="rect" id="node1" title="Main code for the Tractor Enginge Watchdog." alt="" coords="115,5,382,32"/>
+<area shape="rect" id="node1" title="Main code for the Tractor Enginge Watchdog." alt="" coords="77,5,343,32"/>
 <area shape="rect" id="node2" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="169,155,251,181"/>
-<area shape="rect" id="node7" href="$display_8h.html" title="Header file for the display classes." alt="" coords="248,80,327,107"/>
+<area shape="rect" id="node7" href="$display_8h.html" title="Header file for the display classes." alt="" coords="272,80,351,107"/>
+<area shape="rect" id="node9" href="$button_8h.html" title="File that manages input from the button." alt="" coords="172,80,248,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,229,89,256"/>
 <area shape="rect" id="node4" title=" " alt="" coords="114,229,178,256"/>
 <area shape="rect" id="node5" title=" " alt="" coords="202,229,349,256"/>
 <area shape="rect" id="node6" title=" " alt="" coords="373,229,471,256"/>
-<area shape="rect" id="node8" href="$state_8h.html" title="A class for the current system state." alt="" coords="275,155,342,181"/>
+<area shape="rect" id="node8" href="$state_8h.html" title="A class for the current system state." alt="" coords="278,155,345,181"/>
 </map>

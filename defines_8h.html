@@ -95,9 +95,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="defines_8h__dep__incl.png" border="0" usemap="#a_tractor_watchdog_2defines_8hdep" alt=""/></div>
 <map name="a_tractor_watchdog_2defines_8hdep" id="a_tractor_watchdog_2defines_8hdep">
-<area shape="rect" title="Pin and other definitions." alt="" coords="71,5,264,32"/>
-<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="5,80,196,107"/>
-<area shape="rect" href="_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="34,155,301,181"/>
+<area shape="rect" title="Pin and other definitions." alt="" coords="269,5,462,32"/>
+<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="139,80,327,107"/>
+<area shape="rect" href="_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="232,155,499,181"/>
+<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="403,80,594,107"/>
+<area shape="rect" href="button_8cpp.html" title="File that manages input from the button." alt="" coords="5,155,208,181"/>
+<area shape="rect" href="display_8cpp.html" title="Header file for the display classes." alt="" coords="523,155,730,181"/>
 </map>
 </div>
 </div>
@@ -123,12 +126,66 @@ Macros</h2></td></tr>
 <tr class="memitem:ab82e477afc2db97cb6bbf1b62723fa3b"><td class="memItemLeft" align="right" valign="top"><a id="ab82e477afc2db97cb6bbf1b62723fa3b"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GRAPH_PLOT_EVERY</b>&#160;&#160;&#160;9</td></tr>
 <tr class="separator:ab82e477afc2db97cb6bbf1b62723fa3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37d6b0c97612848fce20f292dce64c0"><td class="memItemLeft" align="right" valign="top"><a id="ab37d6b0c97612848fce20f292dce64c0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UI_DEBOUNCE_TIME</b>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:ab37d6b0c97612848fce20f292dce64c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c0a1e8bc57c47958df1d79aa12e0e0"><td class="memItemLeft" align="right" valign="top"><a id="af6c0a1e8bc57c47958df1d79aa12e0e0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UI_LONG_PRESS_TIME</b>&#160;&#160;&#160;5000</td></tr>
+<tr class="separator:af6c0a1e8bc57c47958df1d79aa12e0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memItemLeft" align="right" valign="top"><a id="ac137ab24d3f6e32032c0079e9a0731a1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LIMIT_TEMPERATURE</b>&#160;&#160;&#160;110</td></tr>
 <tr class="separator:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ab213ef8b53fcaf2f3bcdd48424cac"><td class="memItemLeft" align="right" valign="top"><a id="a06ab213ef8b53fcaf2f3bcdd48424cac"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LIMIT_REVS</b>&#160;&#160;&#160;1900</td></tr>
 <tr class="separator:a06ab213ef8b53fcaf2f3bcdd48424cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa831f5ae47a650166057bb86b29eee0f"><td class="memItemLeft" align="right" valign="top"><a id="aa831f5ae47a650166057bb86b29eee0f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_MOTOR_A</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:aa831f5ae47a650166057bb86b29eee0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347d170b0e615f00a85675c0701f2752"><td class="memItemLeft" align="right" valign="top"><a id="a347d170b0e615f00a85675c0701f2752"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_MOTOR_B</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a347d170b0e615f00a85675c0701f2752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ac1e97b1348be70ab06245eb12dc0c"><td class="memItemLeft" align="right" valign="top"><a id="a68ac1e97b1348be70ab06245eb12dc0c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_HORN</b>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a68ac1e97b1348be70ab06245eb12dc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab496a44b1c9855297a05d37ec2c012"><td class="memItemLeft" align="right" valign="top"><a id="afab496a44b1c9855297a05d37ec2c012"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_AUX</b>&#160;&#160;&#160;11</td></tr>
+<tr class="separator:afab496a44b1c9855297a05d37ec2c012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac806fbeeb285483f6d54568fb6488df9"><td class="memItemLeft" align="right" valign="top"><a id="ac806fbeeb285483f6d54568fb6488df9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_RS485_DI</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ac806fbeeb285483f6d54568fb6488df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a087b04d58b11dd42e814c5e011a8aa"><td class="memItemLeft" align="right" valign="top"><a id="a5a087b04d58b11dd42e814c5e011a8aa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_RS485_RO</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a5a087b04d58b11dd42e814c5e011a8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5667dbd6ad323191f8c5acae30670068"><td class="memItemLeft" align="right" valign="top"><a id="a5667dbd6ad323191f8c5acae30670068"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_RS485_NRE</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a5667dbd6ad323191f8c5acae30670068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d84eb4ce3af62eede4bd6c3f735a018"><td class="memItemLeft" align="right" valign="top"><a id="a0d84eb4ce3af62eede4bd6c3f735a018"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_RS485_DE</b>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a0d84eb4ce3af62eede4bd6c3f735a018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e3733c5688f11182dfe72f2ca100a8"><td class="memItemLeft" align="right" valign="top"><a id="a54e3733c5688f11182dfe72f2ca100a8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_RPM</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a54e3733c5688f11182dfe72f2ca100a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aeb8dd51138151c1c36cbb323f423ed"><td class="memItemLeft" align="right" valign="top"><a id="a9aeb8dd51138151c1c36cbb323f423ed"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_OIL_SW</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a9aeb8dd51138151c1c36cbb323f423ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1231566d7d5d2de7c05880425534d36f"><td class="memItemLeft" align="right" valign="top"><a id="a1231566d7d5d2de7c05880425534d36f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_THERMISTOR_1</b>&#160;&#160;&#160;A0</td></tr>
+<tr class="separator:a1231566d7d5d2de7c05880425534d36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2512a6f3ebf25b046dd9c675a5ce1576"><td class="memItemLeft" align="right" valign="top"><a id="a2512a6f3ebf25b046dd9c675a5ce1576"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_THERMISTOR_2</b>&#160;&#160;&#160;A1</td></tr>
+<tr class="separator:a2512a6f3ebf25b046dd9c675a5ce1576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb925a5f9d18b6b2bc2b80357d94e5a1"><td class="memItemLeft" align="right" valign="top"><a id="adb925a5f9d18b6b2bc2b80357d94e5a1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_BATTERY</b>&#160;&#160;&#160;A2</td></tr>
+<tr class="separator:adb925a5f9d18b6b2bc2b80357d94e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be8154d350ce65f5e6c1dfc284700af"><td class="memItemLeft" align="right" valign="top"><a id="a3be8154d350ce65f5e6c1dfc284700af"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_BUTTON</b>&#160;&#160;&#160;A3</td></tr>
+<tr class="separator:a3be8154d350ce65f5e6c1dfc284700af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfb6a7d75a520f42d21ec9a9f640342"><td class="memItemLeft" align="right" valign="top"><a id="a5dfb6a7d75a520f42d21ec9a9f640342"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_SDA</b>&#160;&#160;&#160;A4</td></tr>
+<tr class="separator:a5dfb6a7d75a520f42d21ec9a9f640342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4874028097ae0777b42cef20ffc913d"><td class="memItemLeft" align="right" valign="top"><a id="ab4874028097ae0777b42cef20ffc913d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PIN_SCL</b>&#160;&#160;&#160;A5</td></tr>
+<tr class="separator:ab4874028097ae0777b42cef20ffc913d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeec40e2b433cc2844853d184006edff0"><td class="memItemLeft" align="right" valign="top"><a id="aeec40e2b433cc2844853d184006edff0"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>xstr</b>(s)&#160;&#160;&#160;str(s)</td></tr>
 <tr class="separator:aeec40e2b433cc2844853d184006edff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
