@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rightjustify_31',['rightJustify',['../class_display.html#aaa6d9e01a00ea45c442360d50c9de107',1,'Display']]],
-  ['rpminterrupt_32',['rpmInterrupt',['../_tractor_watchdog_8ino.html#a5341eb97340d616b9d183cee377d4f41',1,'TractorWatchdog.ino']]]
+  ['next_34',['next',['../class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d',1,'DisplayManager']]]
 ];

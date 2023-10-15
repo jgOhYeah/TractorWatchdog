@@ -71,28 +71,34 @@ $(function() {
 <div class="contents">
 <a href="state_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">   16</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    RUNNING,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    STOPPED,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    OVER_TEMP,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    OVER_REV,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    OIL_PRESSURE</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_state.html">   29</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_state.html">State</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    int16_t temperature;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    uint8_t voltage;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    uint32_t tripHours;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    uint32_t totalHours;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint16_t rpm;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> oilPressure; <span class="comment">// True if there is pressure.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a> engineState;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="ttc" id="astate_8h_html_ab9e409db5feff0bdbc85e90e2a029cda"><div class="ttname"><a href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a></div><div class="ttdeci">EngineState</div><div class="ttdoc">The current engine state.</div><div class="ttdef"><b>Definition:</b> state.h:17</div></div>
-<div class="ttc" id="astruct_state_html"><div class="ttname"><a href="struct_state.html">State</a></div><div class="ttdoc">Struct to hold the current state and parameters of the vehicle.</div><div class="ttdef"><b>Definition:</b> state.h:30</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="display_8h.html">display.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">   17</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    RUNNING,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    STOPPED,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    OVER_TEMP,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    OVER_REV,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    OIL_PRESSURE</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_state.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_state.html">State</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    int16_t temperature;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    uint8_t voltage;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint32_t tripHours;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    uint32_t totalHours;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    uint16_t rpm;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> oilPressure; <span class="comment">// True if there is pressure.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a> engineState;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_state.html#a84e4eabcfbeb6ccfa81db66c50ca9819">updateEngineState</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="ttc" id="aclass_state_html"><div class="ttname"><a href="class_state.html">State</a></div><div class="ttdoc">Struct to hold the current state and parameters of the vehicle.</div><div class="ttdef"><b>Definition:</b> state.h:31</div></div>
+<div class="ttc" id="aclass_state_html_a84e4eabcfbeb6ccfa81db66c50ca9819"><div class="ttname"><a href="class_state.html#a84e4eabcfbeb6ccfa81db66c50ca9819">State::updateEngineState</a></div><div class="ttdeci">bool updateEngineState()</div><div class="ttdoc">Updates the engineState attribute from the other state attributes.</div><div class="ttdef"><b>Definition:</b> state.cpp:11</div></div>
+<div class="ttc" id="adisplay_8h_html"><div class="ttname"><a href="display_8h.html">display.h</a></div><div class="ttdoc">Header file for the display classes.</div></div>
+<div class="ttc" id="astate_8h_html_ab9e409db5feff0bdbc85e90e2a029cda"><div class="ttname"><a href="state_8h.html#ab9e409db5feff0bdbc85e90e2a029cda">EngineState</a></div><div class="ttdeci">EngineState</div><div class="ttdoc">The current engine state.</div><div class="ttdef"><b>Definition:</b> state.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

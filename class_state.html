@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tractor Engine Watchdog: State Struct Reference</title>
+<title>Tractor Engine Watchdog: State Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,18 +62,25 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="struct_state-members.html">List of all members</a>  </div>
+<a href="class_state-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">State Struct Reference</div>  </div>
+<div class="title">State Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Struct to hold the current state and parameters of the vehicle.  
- <a href="struct_state.html#details">More...</a></p>
+ <a href="class_state.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="state_8h_source.html">state.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a84e4eabcfbeb6ccfa81db66c50ca9819"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a84e4eabcfbeb6ccfa81db66c50ca9819">updateEngineState</a> ()</td></tr>
+<tr class="memdesc:a84e4eabcfbeb6ccfa81db66c50ca9819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the engineState attribute from the other state attributes.  <a href="class_state.html#a84e4eabcfbeb6ccfa81db66c50ca9819">More...</a><br /></td></tr>
+<tr class="separator:a84e4eabcfbeb6ccfa81db66c50ca9819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae6c8368e17a09bc5b97db98bd9eea6ab"><td class="memItemLeft" align="right" valign="top"><a id="ae6c8368e17a09bc5b97db98bd9eea6ab"></a>
@@ -100,8 +107,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>oilPressure</b></td><
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Struct to hold the current state and parameters of the vehicle. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a84e4eabcfbeb6ccfa81db66c50ca9819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e4eabcfbeb6ccfa81db66c50ca9819">&#9670;&nbsp;</a></span>updateEngineState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool State::updateEngineState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the engineState attribute from the other state attributes. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if everything is ok. </dd>
+<dd>
+false if there is an issue (only returned on the first issue, all issues need to be cleared before this can go true again). </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>TractorWatchdog/<a class="el" href="state_8h_source.html">state.h</a></li>
+<li>TractorWatchdog/<a class="el" href="state_8cpp.html">state.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

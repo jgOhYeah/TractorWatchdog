@@ -1,9 +1,13 @@
 <map id="TractorWatchdog/defines.h" name="TractorWatchdog/defines.h">
-<area shape="rect" id="node1" title="Pin and other definitions." alt="" coords="227,5,421,32"/>
-<area shape="rect" id="node2" href="$button_8h.html" title="File that manages input from the button." alt="" coords="30,80,218,107"/>
-<area shape="rect" id="node4" href="$_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="232,155,499,181"/>
-<area shape="rect" id="node5" href="$display_8h.html" title="Header file for the display classes." alt="" coords="514,80,705,107"/>
-<area shape="rect" id="node7" href="$sensors_8h.html" title="File that contains code for sensors." alt="" coords="294,80,490,107"/>
+<area shape="rect" id="node1" title="Pin and other definitions." alt="" coords="497,5,690,32"/>
+<area shape="rect" id="node2" href="$button_8h.html" title="File that manages input from the button." alt="" coords="70,80,258,107"/>
+<area shape="rect" id="node4" href="$_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="213,304,480,331"/>
+<area shape="rect" id="node5" href="$display_8h.html" title="Header file for the display classes." alt="" coords="498,80,689,107"/>
+<area shape="rect" id="node8" href="$sensors_8h.html" title="File that contains code for sensors." alt="" coords="627,229,823,256"/>
+<area shape="rect" id="node10" href="$motor_8h.html" title="File for the validation and engine shutdown components." alt="" coords="869,80,1053,107"/>
 <area shape="rect" id="node3" href="$button_8cpp.html" title="File that manages input from the button." alt="" coords="5,155,208,181"/>
-<area shape="rect" id="node6" href="$display_8cpp.html" title="Header file for the display classes." alt="" coords="523,155,730,181"/>
+<area shape="rect" id="node6" href="$display_8cpp.html" title="Header file for the display classes." alt="" coords="385,155,591,181"/>
+<area shape="rect" id="node7" href="$state_8h.html" title="A class for the current system state." alt="" coords="616,155,795,181"/>
+<area shape="rect" id="node9" href="$state_8cpp.html" title="Cpntains code realting to the system state." alt="" coords="408,229,603,256"/>
+<area shape="rect" id="node11" href="$motor_8cpp.html" title="File for the validation and engine shutdown components." alt="" coords="919,155,1118,181"/>
 </map>

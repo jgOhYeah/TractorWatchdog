@@ -1,5 +1,5 @@
 <map id="TractorWatchdog/display.h" name="TractorWatchdog/display.h">
-<area shape="rect" id="node1" title="Header file for the display classes." alt="" coords="164,5,355,32"/>
+<area shape="rect" id="node1" title="Header file for the display classes." alt="" coords="213,5,404,32"/>
 <area shape="rect" id="node2" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="169,80,251,107"/>
 <area shape="rect" id="node7" href="$state_8h.html" title="A class for the current system state." alt="" coords="275,80,342,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,89,181"/>

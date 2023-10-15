@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['next_30',['next',['../class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d',1,'DisplayManager']]]
+  ['motor_31',['Motor',['../class_motor.html',1,'']]],
+  ['motor_2ecpp_32',['motor.cpp',['../motor_8cpp.html',1,'']]],
+  ['motor_2eh_33',['motor.h',['../motor_8h.html',1,'']]]
 ];
