@@ -353,7 +353,7 @@ void DisplayError::drawState()
     }
 
     // Write some spaces to wipe out any remaining text from a previous error.
-    for(uint8_t i = 0; i < 16; i++)
+    for (uint8_t i = 0; i < 16; i++)
     {
         lcd.write(' ');
     }

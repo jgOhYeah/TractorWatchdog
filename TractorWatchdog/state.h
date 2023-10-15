@@ -11,7 +11,7 @@
 
 /**
  * @brief The current engine state.
- * 
+ *
  */
 enum EngineState
 {
@@ -24,7 +24,7 @@ enum EngineState
 
 /**
  * @brief Struct to hold the current state and parameters of the vehicle.
- * 
+ *
  */
 struct State
 {
