@@ -12,6 +12,7 @@
 #include "defines.h"
 #include "display.h"
 #include "button.h"
+#include "sensors.h"
 
 // Constructors
 #define LCD_ADDRESS 0x27
@@ -25,6 +26,12 @@ State state;
 
 DisplayManager displays(lcd);
 Button button(PIN_BUTTON);
+SensorManager sensors;
+
+// Variables for rpm measurement
+volatile uint32_t rpmCurTime = 0;
+volatile uint32_t rpmPrevTime = 0;
+volatile bool rpmRotationFlag = false;
 
 void setup()
 {
@@ -33,21 +40,21 @@ void setup()
     Serial.println(DEVICE_URL);
     Serial.println(COMPILED_MSG);
 
+    // Setup the sensors and states
+    state.engineState = STOPPED;
+    state.rpm = 0;
+    state.temperature = 0;
+    state.totalHours = 0;
+    state.tripHours = 0;
+    sensors.begin();
+
     // Set up the lcd
     lcd.init();
     lcd.backlight();
 
     // Setup the button
     button.begin();
-
     // Show some stuff
-    // displays.activate(DISP_ABOUT);
-    state.engineState = OIL_PRESSURE;
-    state.rpm = 1876;
-    state.temperature = 86;
-    state.totalHours = 36000;
-    state.tripHours = 3600;
-    state.voltage = 138;
     displays.updateState(); // Write the status for the max and min.
     displays.activate(DISP_ERROR);
 }
@@ -57,13 +64,24 @@ void loop()
     // Update all the displays.
     displays.tick();
     button.check();
+    sensors.tick();
+
+    // Update the sensors every so often.
+    static uint32_t prevTime = 0;
+    uint32_t curTime = millis();
+    if (curTime - prevTime > SENSOR_UPDATE_INTERVAL)
+    {
+        prevTime = curTime;
+        sensors.addState();
+        displays.updateState();
+    }
 }
 
 /**
  * @brief Function to handle long button presses.
- * 
+ *
  * This resets the trip time.
- * 
+ *
  */
 void btnLongPress()
 {
@@ -72,11 +90,31 @@ void btnLongPress()
 
 /**
  * @brief Function to handle short button presses.
- * 
+ *
  * This changes screens shown.
- * 
+ *
  */
 void btnShortPress()
 {
     displays.next();
+}
+
+/**
+ * @brief ISR for RPM interrupts.
+ *
+ * Relates to code in sensors.h and sensors.cpp.
+ *
+ */
+void rpmInterrupt()
+{
+    uint32_t now = micros();
+    if (now - rpmCurTime >= RPM_DEBOUNCE_TIME)
+    {
+        // Switch closed and no event interrupts for the last little while.
+        // Assume this is a genuine rotation and not switch bounce.
+        rpmPrevTime = rpmCurTime;
+        rpmCurTime = now;
+        rpmRotationFlag = true;
+        Serial.println("ISR");
+    }
 }

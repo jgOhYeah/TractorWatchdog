@@ -33,5 +33,6 @@ struct State
     uint32_t tripHours;
     uint32_t totalHours;
     uint16_t rpm;
+    bool oilPressure; // True if there is pressure.
     EngineState engineState;
 };
