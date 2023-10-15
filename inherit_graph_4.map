@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$struct_state.html" title="Struct to hold the current state and parameters of the vehicle." alt="" coords="5,5,61,32"/>
+<area shape="rect" id="node1" href="$class_sensor.html" title="Base class for all sensors." alt="" coords="5,81,72,108"/>
+<area shape="rect" id="node2" href="$class_sensor_battery.html" title="Class for measuring the battery voltage." alt="" coords="137,5,251,32"/>
+<area shape="rect" id="node3" href="$class_sensor_oil.html" title="Measures whether the oil pressure switch is tripped." alt="" coords="152,56,236,83"/>
+<area shape="rect" id="node4" href="$class_sensor_r_p_m.html" title="Class for logging RPM." alt="" coords="147,107,241,133"/>
+<area shape="rect" id="node5" href="$class_sensor_temperature.html" title="Class for measuring the temperature." alt="" coords="120,157,268,184"/>
 </map>

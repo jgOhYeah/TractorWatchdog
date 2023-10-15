@@ -95,10 +95,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="defines_8h__dep__incl.png" border="0" usemap="#a_tractor_watchdog_2defines_8hdep" alt=""/></div>
 <map name="a_tractor_watchdog_2defines_8hdep" id="a_tractor_watchdog_2defines_8hdep">
-<area shape="rect" title="Pin and other definitions." alt="" coords="269,5,462,32"/>
-<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="139,80,327,107"/>
+<area shape="rect" title="Pin and other definitions." alt="" coords="227,5,421,32"/>
+<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="30,80,218,107"/>
 <area shape="rect" href="_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="232,155,499,181"/>
-<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="403,80,594,107"/>
+<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="514,80,705,107"/>
+<area shape="rect" href="sensors_8h.html" title="File that contains code for sensors." alt="" coords="294,80,490,107"/>
 <area shape="rect" href="button_8cpp.html" title="File that manages input from the button." alt="" coords="5,155,208,181"/>
 <area shape="rect" href="display_8cpp.html" title="Header file for the display classes." alt="" coords="523,155,730,181"/>
 </map>
@@ -127,11 +128,23 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GRAPH_PLOT_EVERY</b>&#160;&#160;&#160;9</td></tr>
 <tr class="separator:ab82e477afc2db97cb6bbf1b62723fa3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab37d6b0c97612848fce20f292dce64c0"><td class="memItemLeft" align="right" valign="top"><a id="ab37d6b0c97612848fce20f292dce64c0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UI_DEBOUNCE_TIME</b>&#160;&#160;&#160;50</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UI_DEBOUNCE_TIME</b>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:ab37d6b0c97612848fce20f292dce64c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6c0a1e8bc57c47958df1d79aa12e0e0"><td class="memItemLeft" align="right" valign="top"><a id="af6c0a1e8bc57c47958df1d79aa12e0e0"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UI_LONG_PRESS_TIME</b>&#160;&#160;&#160;5000</td></tr>
 <tr class="separator:af6c0a1e8bc57c47958df1d79aa12e0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb00d3cf1de34da9b683b6783823ac5b"><td class="memItemLeft" align="right" valign="top"><a id="abb00d3cf1de34da9b683b6783823ac5b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RPM_DEBOUNCE_TIME</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:abb00d3cf1de34da9b683b6783823ac5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab066938defb1b34f5d873c1cb7203251"><td class="memItemLeft" align="right" valign="top"><a id="ab066938defb1b34f5d873c1cb7203251"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAL_BATT_NUMERATOR</b>&#160;&#160;&#160;6950</td></tr>
+<tr class="separator:ab066938defb1b34f5d873c1cb7203251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d26efacd06babfd7920ca556876b1b"><td class="memItemLeft" align="right" valign="top"><a id="ac3d26efacd06babfd7920ca556876b1b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CAL_BATT_DENOMINATOR</b>&#160;&#160;&#160;39897</td></tr>
+<tr class="separator:ac3d26efacd06babfd7920ca556876b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3975c1d599d1bd0f758cd64991a4ffe"><td class="memItemLeft" align="right" valign="top"><a id="af3975c1d599d1bd0f758cd64991a4ffe"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SENSOR_UPDATE_INTERVAL</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:af3975c1d599d1bd0f758cd64991a4ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memItemLeft" align="right" valign="top"><a id="ac137ab24d3f6e32032c0079e9a0731a1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LIMIT_TEMPERATURE</b>&#160;&#160;&#160;110</td></tr>
 <tr class="separator:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memSeparator" colspan="2">&#160;</td></tr>

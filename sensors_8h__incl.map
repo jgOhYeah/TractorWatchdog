@@ -1,0 +1,9 @@
+<map id="TractorWatchdog/sensors.h" name="TractorWatchdog/sensors.h">
+<area shape="rect" id="node1" title="File that contains code for sensors." alt="" coords="161,5,357,32"/>
+<area shape="rect" id="node2" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="169,80,251,107"/>
+<area shape="rect" id="node7" href="$state_8h.html" title="A class for the current system state." alt="" coords="275,80,342,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,89,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="114,155,178,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="202,155,349,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="373,155,471,181"/>
+</map>

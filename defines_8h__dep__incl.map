@@ -1,8 +1,9 @@
 <map id="TractorWatchdog/defines.h" name="TractorWatchdog/defines.h">
-<area shape="rect" id="node1" title="Pin and other definitions." alt="" coords="269,5,462,32"/>
-<area shape="rect" id="node2" href="$button_8h.html" title="File that manages input from the button." alt="" coords="139,80,327,107"/>
+<area shape="rect" id="node1" title="Pin and other definitions." alt="" coords="227,5,421,32"/>
+<area shape="rect" id="node2" href="$button_8h.html" title="File that manages input from the button." alt="" coords="30,80,218,107"/>
 <area shape="rect" id="node4" href="$_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="232,155,499,181"/>
-<area shape="rect" id="node5" href="$display_8h.html" title="Header file for the display classes." alt="" coords="403,80,594,107"/>
+<area shape="rect" id="node5" href="$display_8h.html" title="Header file for the display classes." alt="" coords="514,80,705,107"/>
+<area shape="rect" id="node7" href="$sensors_8h.html" title="File that contains code for sensors." alt="" coords="294,80,490,107"/>
 <area shape="rect" id="node3" href="$button_8cpp.html" title="File that manages input from the button." alt="" coords="5,155,208,181"/>
 <area shape="rect" id="node6" href="$display_8cpp.html" title="Header file for the display classes." alt="" coords="523,155,730,181"/>
 </map>

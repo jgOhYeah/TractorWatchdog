@@ -1,0 +1,4 @@
+<map id="SensorBattery" name="SensorBattery">
+<area shape="rect" id="node1" title="Class for measuring the battery voltage." alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node2" href="$class_sensor.html" title="Base class for all sensors." alt="" coords="29,5,96,32"/>
+</map>
