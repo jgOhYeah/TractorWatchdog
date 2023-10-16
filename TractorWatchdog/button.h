@@ -9,6 +9,12 @@
 #pragma once
 #include "defines.h"
 
+/**
+ * @brief Class for handling input from a user facing button.
+ * 
+ * This class calls a function for a long and short press.
+ * 
+ */
 class Button
 {
 public:
@@ -34,6 +40,7 @@ public:
 private:
     const uint8_t pin;
     bool isPressed = false;
+    bool longEnabled = true;
     uint32_t lastPressedTime;
     uint32_t pressStartTime;
 };

@@ -355,11 +355,39 @@ private:
     bool showingHome;
 };
 
+/**
+ * @brief Display that shows the total and trip times.
+ *
+ */
+class DisplayTime : public Display
+{
+public:
+    using Display::Display;
+
+    /**
+     * @brief Draws the display as the current one on the screen.
+     *
+     */
+    virtual void activate();
+
+    /**
+     * @brief Called whenever data that the system might have on the screen is
+     * updated.
+     *
+     */
+    virtual void drawState();
+};
+
+/**
+ * @brief Convenient indices / names corresponding to the array of displays.
+ * 
+ */
 enum DisplayIndex
 {
     DISP_HOME,
     DISP_TEMPERATURE,
     DISP_VOLTAGE,
+    DISP_TIME,
     DISP_ABOUT,
     DISP_ERROR_SINGLE,
     DISP_ERROR,
@@ -375,7 +403,7 @@ class DisplayManager
 {
 public:
     DisplayManager(LiquidCrystal_I2C &lcd)
-        : about(lcd), temp(lcd), voltage(lcd), home(lcd),
+        : about(lcd), temp(lcd), voltage(lcd), home(lcd), time(lcd),
           errorSingle(lcd), error(lcd, errorSingle, home){};
 
     /**
@@ -417,9 +445,10 @@ private:
     DisplayWaterTemp temp;
     DisplayHome home;
     DisplayVoltage voltage;
+    DisplayTime time;
     DisplayError errorSingle;
     DisplayErrorAlternating error;
 
-    Display *const displays[7] = {&home, &temp, &voltage, &about, &errorSingle, &error, &about};
+    Display *const displays[8] = {&home, &temp, &voltage, &time, &about, &errorSingle, &error, &time};
     const int8_t VIEWABLE_DISPLAYS = 4; // When the display is not one on the viewable list.
 };

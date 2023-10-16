@@ -46,8 +46,8 @@ void setup()
     state.engineState = STOPPED;
     state.rpm = 0;
     state.temperature = 0;
-    state.totalHours = 0;
-    state.tripHours = 0;
+    state.totalMinutes = 0;
+    state.tripMinutes = 0;
     sensors.begin();
 
     // Set up the lcd
@@ -105,7 +105,10 @@ void loop()
  */
 void btnLongPress()
 {
-    // TODO.
+    lcd.noBacklight();
+    sensors.time.resetTrip();
+    delay(1000);
+    lcd.backlight();
 }
 
 /**

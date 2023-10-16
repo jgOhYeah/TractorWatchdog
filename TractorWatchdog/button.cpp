@@ -33,21 +33,32 @@ void Button::check()
             isPressed = true;
             pressStartTime = curTime;
         }
+
+        // Check if a long press and call the function now instead of on
+        // release.
+        if (curTime - pressStartTime > UI_LONG_PRESS_TIME && longEnabled)
+        {
+            // Long press
+            Serial.println(F("Long press"));
+            btnLongPress();
+
+            // Make sure we only send long press once
+            longEnabled = false;
+        }
+
     }
     else if (isPressed && (curTime - lastPressedTime) > UI_DEBOUNCE_TIME)
     {
         // Not pressed but was last time we checked. The debounce timer has also
         // elapsed - we are allowed to say the button is no longer pressed.
         isPressed = false;
+        longEnabled = true;
 
-        // Long or short press?
-        if (curTime - pressStartTime > UI_LONG_PRESS_TIME)
+        // Long or short press? Only call for a short press as long is called on
+        // the threshold being reached above.
+        if (curTime - pressStartTime <= UI_LONG_PRESS_TIME)
         {
-            Serial.println(F("Long press"));
-            btnLongPress();
-        }
-        else
-        {
+            // Short press.
             Serial.println(F("Short press"));
             btnShortPress();
         }

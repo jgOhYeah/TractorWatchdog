@@ -16,6 +16,7 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <LCDGraph.h>
+#include <EEPROMWearLevel.h>
 
 /*
  * Constants
@@ -38,6 +39,11 @@
 
 #define SENSOR_UPDATE_INTERVAL 1000
 #define STARTUP_DELAY 5000
+
+// EEPROM settings
+#define EEPROM_LAYOUT_VERSION 0
+#define AMOUNT_OF_INDEXES 2
+
 
 /*
  * Limits

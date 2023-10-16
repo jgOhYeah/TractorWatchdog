@@ -8,7 +8,7 @@
  */
 
 #pragma once
-#include "display.h"
+#include "defines.h"
 
 /**
  * @brief The current engine state.
@@ -32,15 +32,15 @@ class State
 public:
     int16_t temperature;
     uint8_t voltage;
-    uint32_t tripHours;
-    uint32_t totalHours;
+    uint32_t tripMinutes;
+    uint32_t totalMinutes;
     uint16_t rpm;
     bool oilPressure; // True if there is pressure.
     EngineState engineState;
 
     /**
      * @brief Updates the engineState attribute from the other state attributes.
-     * 
+     *
      * @return true if everything is ok.
      * @return false if there is an issue (only returned on the first issue, all
      *               issues need to be cleared before this can go true again).

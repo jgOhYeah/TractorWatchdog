@@ -152,8 +152,8 @@ void DisplayHome::drawState()
 
     // Trip hours
     lcd.setCursor(10, 1);
-    uint32_t hourTenths = (state.tripHours / 60) * 10; // Add the hours.
-    hourTenths += ((state.tripHours % 60) * 10) / 60;  // Add the minutes as tenths of an hour.
+    uint32_t hourTenths = (state.tripMinutes / 60) * 10; // Add the hours.
+    hourTenths += ((state.tripMinutes % 60) * 10) / 60;  // Add the minutes as tenths of an hour.
     drawTenths(hourTenths, 3);
 }
 
@@ -392,6 +392,46 @@ void DisplayErrorAlternating::intervalTick()
         home.activate();
     }
     showingHome = !showingHome;
+}
+
+void DisplayTime::activate()
+{
+    Display::activate();
+    // Total time.
+    lcd.setCursor(0, 0);
+    lcd.print(F("Total:"));
+    lcd.setCursor(11, 0);
+    lcd.write('h');
+    lcd.setCursor(15, 0);
+    lcd.write('m');
+
+    // Trip time.
+    lcd.setCursor(0, 1);
+    lcd.print(F("Trip:"));
+    lcd.setCursor(11, 1);
+    lcd.write('h');
+    lcd.setCursor(15, 1);
+    lcd.write('m');
+}
+
+void DisplayTime::drawState()
+{
+    const char NUMBER_PREFIX = ' ';
+    // Total
+    uint32_t hours = state.totalMinutes / 60;
+    uint32_t minutes = state.totalMinutes % 60;
+    lcd.setCursor(7, 0);
+    rightJustify(hours, 4, NUMBER_PREFIX);
+    lcd.setCursor(13, 0);
+    rightJustify(minutes, 2, NUMBER_PREFIX);
+
+    // Trip
+    hours = state.tripMinutes / 60;
+    minutes = state.tripMinutes % 60;
+    lcd.setCursor(7, 1);
+    rightJustify(hours, 4, NUMBER_PREFIX);
+    lcd.setCursor(13, 1);
+    rightJustify(minutes, 2, NUMBER_PREFIX);
 }
 
 void DisplayManager::tick()

@@ -106,10 +106,50 @@ public:
 
     /**
      * @brief Checks if there hasn't been an interrupt recently.
-     * 
-     * Resets the rpm to 0 if so. 
+     *
+     * Resets the rpm to 0 if so.
      */
     virtual void addState();
+};
+
+class SensorTime : public Sensor
+{
+public:
+    /**
+     * @brief Initialises the EEPROM and loads any existing times from it.
+     * 
+     */
+    virtual void begin();
+
+    /**
+     * @brief Updates the time as needed.
+     * 
+     */
+    virtual void tick();
+
+    /**
+     * @brief Resets the trip time
+     * 
+     */
+    virtual void resetTrip();
+
+private:
+    /**
+     * @brief Saves the times stored in the state variable to EEPROM.
+     * 
+     */
+    void saveEEPROM();
+
+    /**
+     * @brief Restores the times stored in the state variable from EEPROM.
+     * 
+     */
+    void restoreEEPROM();
+
+    bool isRunning = false;
+    uint32_t engineStartTimeTotal = 0;
+    uint32_t engineStartTimeTrip = 0; // Separate so this can be reset independently.
+    uint32_t totalAtStart, tripAtStart;
 };
 
 /**
@@ -141,6 +181,7 @@ public:
     SensorOil oil;
     SensorTemperature temperature;
     SensorRPM rpm;
+    SensorTime time;
 
-    Sensor *const sensors[4] = {&battery, &oil, &temperature, &rpm};
+    Sensor *const sensors[5] = {&battery, &oil, &temperature, &rpm, &time};
 };
