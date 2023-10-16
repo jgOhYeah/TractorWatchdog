@@ -1,0 +1,4 @@
+<map id="DisplayTime" name="DisplayTime">
+<area shape="rect" id="node1" title="Display that shows the total and trip times." alt="" coords="5,80,109,107"/>
+<area shape="rect" id="node2" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="22,5,93,32"/>
+</map>

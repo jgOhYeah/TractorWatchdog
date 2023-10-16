@@ -1,10 +1,10 @@
 <map id="TractorWatchdog/state.cpp" name="TractorWatchdog/state.cpp">
-<area shape="rect" id="node1" title="Cpntains code realting to the system state." alt="" coords="113,5,307,32"/>
-<area shape="rect" id="node2" href="$state_8h.html" title="A class for the current system state." alt="" coords="177,80,243,107"/>
-<area shape="rect" id="node3" href="$display_8h.html" title="Header file for the display classes." alt="" coords="171,155,249,181"/>
-<area shape="rect" id="node4" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="169,229,251,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,304,89,331"/>
-<area shape="rect" id="node6" title=" " alt="" coords="114,304,178,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="202,304,349,331"/>
-<area shape="rect" id="node8" title=" " alt="" coords="373,304,471,331"/>
+<area shape="rect" id="node1" title="Cpntains code realting to the system state." alt="" coords="178,5,373,32"/>
+<area shape="rect" id="node2" href="$state_8h.html" title="A class for the current system state." alt="" coords="242,80,309,107"/>
+<area shape="rect" id="node3" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="235,155,316,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,229,89,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="114,229,178,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="202,229,349,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="373,229,471,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="495,229,653,256"/>
 </map>

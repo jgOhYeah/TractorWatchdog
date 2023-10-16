@@ -1,5 +1,5 @@
 <map id="TractorWatchdog/state.h" name="TractorWatchdog/state.h">
-<area shape="rect" id="node1" title="A class for the current system state." alt="" coords="171,5,350,32"/>
+<area shape="rect" id="node1" title="A class for the current system state." alt="" coords="281,5,459,32"/>
 <area shape="rect" id="node2" href="$display_8h.html" title="Header file for the display classes." alt="" coords="57,80,248,107"/>
 <area shape="rect" id="node5" href="$sensors_8h.html" title="File that contains code for sensors." alt="" coords="272,80,468,107"/>
 <area shape="rect" id="node6" href="$state_8cpp.html" title="Cpntains code realting to the system state." alt="" coords="493,80,687,107"/>

@@ -1,8 +1,9 @@
 <map id="SensorManager" name="SensorManager">
-<area shape="rect" id="node1" title="Class for managing sensors." alt="" coords="183,171,305,197"/>
-<area shape="rect" id="node2" href="$class_sensor_r_p_m.html" title="Class for logging RPM." alt="" coords="83,81,178,108"/>
-<area shape="rect" id="node3" href="$class_sensor.html" title="Base class for all sensors." alt="" coords="211,5,277,32"/>
-<area shape="rect" id="node4" href="$class_sensor_oil.html" title="Measures whether the oil pressure switch is tripped." alt="" coords="202,81,286,108"/>
-<area shape="rect" id="node5" href="$class_sensor_battery.html" title="Class for measuring the battery voltage." alt="" coords="311,81,425,108"/>
-<area shape="rect" id="node6" href="$class_sensor_temperature.html" title="Class for measuring the temperature." alt="" coords="450,81,598,108"/>
+<area shape="rect" id="node1" title="Class for managing sensors." alt="" coords="245,171,367,197"/>
+<area shape="rect" id="node2" href="$class_sensor_r_p_m.html" title="Class for logging RPM." alt="" coords="84,81,179,108"/>
+<area shape="rect" id="node3" href="$class_sensor.html" title="Base class for all sensors." alt="" coords="250,5,317,32"/>
+<area shape="rect" id="node4" href="$class_sensor_oil.html" title="Measures whether the oil pressure switch is tripped." alt="" coords="203,81,287,108"/>
+<area shape="rect" id="node5" href="$class_sensor_battery.html" title="Class for measuring the battery voltage." alt="" coords="311,81,426,108"/>
+<area shape="rect" id="node6" href="$class_sensor_temperature.html" title="Class for measuring the temperature." alt="" coords="451,81,599,108"/>
+<area shape="rect" id="node7" href="$class_sensor_time.html" title=" " alt="" coords="623,81,722,108"/>
 </map>

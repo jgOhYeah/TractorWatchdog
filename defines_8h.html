@@ -78,16 +78,18 @@ $(function() {
 <code>#include &lt;Wire.h&gt;</code><br />
 <code>#include &lt;LiquidCrystal_I2C.h&gt;</code><br />
 <code>#include &lt;LCDGraph.h&gt;</code><br />
+<code>#include &lt;EEPROMWearLevel.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for defines.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="defines_8h__incl.png" border="0" usemap="#a_tractor_watchdog_2defines_8h" alt=""/></div>
 <map name="a_tractor_watchdog_2defines_8h" id="a_tractor_watchdog_2defines_8h">
-<area shape="rect" title="Pin and other definitions." alt="" coords="113,5,307,32"/>
+<area shape="rect" title="Pin and other definitions." alt="" coords="179,5,372,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,89,107"/>
 <area shape="rect" title=" " alt="" coords="114,80,178,107"/>
 <area shape="rect" title=" " alt="" coords="202,80,349,107"/>
 <area shape="rect" title=" " alt="" coords="373,80,471,107"/>
+<area shape="rect" title=" " alt="" coords="495,80,653,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -95,17 +97,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="defines_8h__dep__incl.png" border="0" usemap="#a_tractor_watchdog_2defines_8hdep" alt=""/></div>
 <map name="a_tractor_watchdog_2defines_8hdep" id="a_tractor_watchdog_2defines_8hdep">
-<area shape="rect" title="Pin and other definitions." alt="" coords="497,5,690,32"/>
-<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="70,80,258,107"/>
-<area shape="rect" href="_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="213,304,480,331"/>
-<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="498,80,689,107"/>
-<area shape="rect" href="sensors_8h.html" title="File that contains code for sensors." alt="" coords="627,229,823,256"/>
-<area shape="rect" href="motor_8h.html" title="File for the validation and engine shutdown components." alt="" coords="869,80,1053,107"/>
-<area shape="rect" href="button_8cpp.html" title="File that manages input from the button." alt="" coords="5,155,208,181"/>
-<area shape="rect" href="display_8cpp.html" title="Header file for the display classes." alt="" coords="385,155,591,181"/>
-<area shape="rect" href="state_8h.html" title="A class for the current system state." alt="" coords="616,155,795,181"/>
-<area shape="rect" href="state_8cpp.html" title="Cpntains code realting to the system state." alt="" coords="408,229,603,256"/>
-<area shape="rect" href="motor_8cpp.html" title="File for the validation and engine shutdown components." alt="" coords="919,155,1118,181"/>
+<area shape="rect" title="Pin and other definitions." alt="" coords="501,5,695,32"/>
+<area shape="rect" href="button_8h.html" title="File that manages input from the button." alt="" coords="168,80,356,107"/>
+<area shape="rect" href="_tractor_watchdog_8ino.html" title="Main code for the Tractor Enginge Watchdog." alt="" coords="401,229,667,256"/>
+<area shape="rect" href="display_8h.html" title="Header file for the display classes." alt="" coords="1012,155,1203,181"/>
+<area shape="rect" href="motor_8h.html" title="File for the validation and engine shutdown components." alt="" coords="442,80,626,107"/>
+<area shape="rect" href="sensors_8h.html" title="File that contains code for sensors." alt="" coords="572,155,768,181"/>
+<area shape="rect" href="state_8h.html" title="A class for the current system state." alt="" coords="751,80,930,107"/>
+<area shape="rect" href="button_8cpp.html" title="File that manages input from the button." alt="" coords="22,155,225,181"/>
+<area shape="rect" href="display_8cpp.html" title="Header file for the display classes." alt="" coords="1004,229,1211,256"/>
+<area shape="rect" href="motor_8cpp.html" title="File for the validation and engine shutdown components." alt="" coords="299,155,497,181"/>
+<area shape="rect" href="state_8cpp.html" title="Cpntains code realting to the system state." alt="" coords="793,155,987,181"/>
 </map>
 </div>
 </div>
@@ -152,6 +154,12 @@ Macros</h2></td></tr>
 <tr class="memitem:aaed067aba1d8dc17479c812291ca1bcc"><td class="memItemLeft" align="right" valign="top"><a id="aaed067aba1d8dc17479c812291ca1bcc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>STARTUP_DELAY</b>&#160;&#160;&#160;5000</td></tr>
 <tr class="separator:aaed067aba1d8dc17479c812291ca1bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf5d121e010a5c0e72ea748ed457237"><td class="memItemLeft" align="right" valign="top"><a id="afdf5d121e010a5c0e72ea748ed457237"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EEPROM_LAYOUT_VERSION</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:afdf5d121e010a5c0e72ea748ed457237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d035d8b20bf493501ec6cc2367367ac"><td class="memItemLeft" align="right" valign="top"><a id="a7d035d8b20bf493501ec6cc2367367ac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AMOUNT_OF_INDEXES</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a7d035d8b20bf493501ec6cc2367367ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memItemLeft" align="right" valign="top"><a id="ac137ab24d3f6e32032c0079e9a0731a1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LIMIT_TEMPERATURE</b>&#160;&#160;&#160;110</td></tr>
 <tr class="separator:ac137ab24d3f6e32032c0079e9a0731a1"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -1,8 +1,9 @@
 <map id="TractorWatchdog/button.h" name="TractorWatchdog/button.h">
-<area shape="rect" id="node1" title="File that manages input from the button." alt="" coords="116,5,304,32"/>
-<area shape="rect" id="node2" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="169,80,251,107"/>
+<area shape="rect" id="node1" title="File that manages input from the button." alt="" coords="181,5,369,32"/>
+<area shape="rect" id="node2" href="$defines_8h.html" title="Pin and other definitions." alt="" coords="235,80,316,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,89,181"/>
 <area shape="rect" id="node4" title=" " alt="" coords="114,155,178,181"/>
 <area shape="rect" id="node5" title=" " alt="" coords="202,155,349,181"/>
 <area shape="rect" id="node6" title=" " alt="" coords="373,155,471,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="495,155,653,181"/>
 </map>
