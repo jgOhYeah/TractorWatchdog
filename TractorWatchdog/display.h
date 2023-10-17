@@ -342,6 +342,12 @@ public:
      */
     virtual void deactivate();
 
+    /**
+     * @brief Calls drawState for the currently active display.
+     * 
+     */
+    virtual void drawState();
+
 protected:
     /**
      * @brief Swaps beteen home and error.

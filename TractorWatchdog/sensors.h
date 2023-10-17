@@ -112,6 +112,11 @@ public:
     virtual void addState();
 };
 
+/**
+ * @brief Keeps track of total engine hours and trip engine hours.
+ * 
+ * Saves and loads these from EEPROM.
+ */
 class SensorTime : public Sensor
 {
 public:

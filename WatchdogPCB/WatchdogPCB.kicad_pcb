@@ -2577,6 +2577,8 @@
     (stroke (width 0.15) (type default)) (fill none) (layer "Eco2.User") (tstamp 1e4376ed-8e91-4325-bd38-dab25ce6d5dd))
   (gr_line (start 111.76 127) (end 111.76 121.92)
     (stroke (width 0.15) (type default)) (layer "Eco2.User") (tstamp 1ea156c8-e271-4502-b536-be7bc096bd19))
+  (gr_line (start 179.07 105.41) (end 179.07 107.95)
+    (stroke (width 0.15) (type default)) (layer "Eco2.User") (tstamp 2341f7b9-fa13-4c05-95ea-0dab84572264))
   (gr_circle (center 144.78 111.76) (end 146.05 111.76)
     (stroke (width 0.15) (type default)) (fill none) (layer "Eco2.User") (tstamp 23e0a069-4f2f-44c9-8685-af2b343d7975))
   (gr_circle (center 142.24 86.36) (end 143.51 86.36)

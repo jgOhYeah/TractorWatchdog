@@ -394,6 +394,18 @@ void DisplayErrorAlternating::intervalTick()
     showingHome = !showingHome;
 }
 
+void DisplayErrorAlternating::drawState()
+{
+    if (showingHome)
+    {
+        home.drawState();
+    }
+    else
+    {
+        error.drawState();
+    }
+}
+
 void DisplayTime::activate()
 {
     Display::activate();

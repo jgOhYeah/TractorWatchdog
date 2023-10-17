@@ -58,8 +58,6 @@ void setup()
     button.begin();
     // Show some stuff
     displays.activate(DISP_INIT);
-
-    // TODO: Show hours on startup
 }
 
 void loop()
@@ -78,7 +76,7 @@ void loop()
     sensors.tick();
 
     // Update the sensors every so often.
-    static uint32_t prevTime = curTime - SENSOR_UPDATE_INTERVAL-1; // Run first time
+    static uint32_t prevTime = curTime - SENSOR_UPDATE_INTERVAL - 1; // Run first time
     if (curTime - prevTime > SENSOR_UPDATE_INTERVAL)
     {
         prevTime = curTime;
@@ -91,7 +89,6 @@ void loop()
             // There were.
             motor.shutdown();
             displays.activate(DISP_ERROR);
-
         }
         displays.updateState();
     }

@@ -21,22 +21,22 @@ void SensorBattery::addState()
 
 void SensorOil::begin()
 {
-    pinMode(PIN_OIL_SW, INPUT_PULLUP);
+    pinMode(PIN_OIL_SW, INPUT);
 }
 
 void SensorOil::addState()
 {
-    state.oilPressure = digitalRead(PIN_OIL_SW); // TODO: Will be the opposite in the real version.
+    state.oilPressure = !digitalRead(PIN_OIL_SW);
 }
 
 void SensorTemperature::addState()
 {
-    state.temperature = analogRead(PIN_THERMISTOR_1) / 7; // TODO: Calibration curve.
+    state.temperature = (1023-analogRead(PIN_THERMISTOR_1)) / 7; // TODO: Calibration curve.
 }
 
 void SensorRPM::begin()
 {
-    pinMode(PIN_RPM, INPUT_PULLUP);
+    pinMode(PIN_RPM, INPUT);
     attachInterrupt(digitalPinToInterrupt(PIN_RPM), rpmInterrupt, FALLING);
 }
 
