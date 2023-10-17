@@ -1,4 +1,4 @@
 <map id="SensorTime" name="SensorTime">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node1" title="Keeps track of total engine hours and trip engine hours." alt="" coords="5,80,104,107"/>
 <area shape="rect" id="node2" href="$class_sensor.html" title="Base class for all sensors." alt="" coords="21,5,88,32"/>
 </map>

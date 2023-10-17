@@ -4,5 +4,5 @@
 <area shape="rect" id="node3" href="$class_sensor_oil.html" title="Measures whether the oil pressure switch is tripped." alt="" coords="152,56,236,83"/>
 <area shape="rect" id="node4" href="$class_sensor_r_p_m.html" title="Class for logging RPM." alt="" coords="147,107,241,133"/>
 <area shape="rect" id="node5" href="$class_sensor_temperature.html" title="Class for measuring the temperature." alt="" coords="120,157,268,184"/>
-<area shape="rect" id="node6" href="$class_sensor_time.html" title=" " alt="" coords="145,208,243,235"/>
+<area shape="rect" id="node6" href="$class_sensor_time.html" title="Keeps track of total engine hours and trip engine hours." alt="" coords="145,208,243,235"/>
 </map>

@@ -212,72 +212,75 @@ $(function() {
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_error_alternating.html#acb6cdca9c42d1222f424135cdc91bd25">deactivate</a>();</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_error_alternating.html#a6ded4b97fe2d8124e90fcad0f02463c4">intervalTick</a>();</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <a class="code" href="class_display_error.html">DisplayError</a> error;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <a class="code" href="class_display_home.html">DisplayHome</a> home;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordtype">bool</span> showingHome;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;};</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_error_alternating.html#a7b730b67c4e0a9d0ace1eac55dbf2d0e">drawState</a>();</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_error_alternating.html#a6ded4b97fe2d8124e90fcad0f02463c4">intervalTick</a>();</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="class_display_time.html">  362</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_display_time.html">DisplayTime</a> : <span class="keyword">public</span> <a class="code" href="class_display.html">Display</a></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;{</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keyword">using</span> <a class="code" href="class_display.html#a801a6e457e437862f6df54ab957cd02e">Display::Display</a>;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_time.html#aff8fdeb60eee78e7b606dbf61ee18e8e">activate</a>();</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <a class="code" href="class_display_error.html">DisplayError</a> error;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <a class="code" href="class_display_home.html">DisplayHome</a> home;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">bool</span> showingHome;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;};</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="class_display_time.html">  368</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_display_time.html">DisplayTime</a> : <span class="keyword">public</span> <a class="code" href="class_display.html">Display</a></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;{</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">using</span> <a class="code" href="class_display.html#a801a6e457e437862f6df54ab957cd02e">Display::Display</a>;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_time.html#a4be2c73e5cecaa4170dd96c96dae57c3">drawState</a>();</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;};</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00385"></a><span class="lineno"><a class="line" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">  385</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;{</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    DISP_HOME,</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    DISP_TEMPERATURE,</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    DISP_VOLTAGE,</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    DISP_TIME,</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    DISP_ABOUT,</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    DISP_ERROR_SINGLE,</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    DISP_ERROR,</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    DISP_INIT,</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    DISP_INVALID_INDEX = 255</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;};</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00402"></a><span class="lineno"><a class="line" href="class_display_manager.html">  402</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_display_manager.html">DisplayManager</a></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;{</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <a class="code" href="class_display_manager.html">DisplayManager</a>(LiquidCrystal_I2C &amp;lcd)</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        : about(lcd), temp(lcd), voltage(lcd), home(lcd), time(lcd),</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;          errorSingle(lcd), error(lcd, errorSingle, home){};</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a8615fc88d144ace90451272e7703a7fb">tick</a>();</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_time.html#aff8fdeb60eee78e7b606dbf61ee18e8e">activate</a>();</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_time.html#a4be2c73e5cecaa4170dd96c96dae57c3">drawState</a>();</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;};</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno"><a class="line" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">  391</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;{</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    DISP_HOME,</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    DISP_TEMPERATURE,</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    DISP_VOLTAGE,</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    DISP_TIME,</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    DISP_ABOUT,</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    DISP_ERROR_SINGLE,</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    DISP_ERROR,</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    DISP_INIT,</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    DISP_INVALID_INDEX = 255</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;};</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="class_display_manager.html">  408</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_display_manager.html">DisplayManager</a></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;{</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <a class="code" href="class_display_manager.html">DisplayManager</a>(LiquidCrystal_I2C &amp;lcd)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        : about(lcd), temp(lcd), voltage(lcd), home(lcd), time(lcd),</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;          errorSingle(lcd), error(lcd, errorSingle, home){};</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">next</a>();</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a9edf269efd7482af87946c6b417975de">activate</a>(<a class="code" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a> <a class="code" href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">next</a>);</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a85662410c3f6f72493e605af7db8913a">updateState</a>();</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">  441</a></span>&#160;    uint8_t <a class="code" href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">currentIndex</a> = DISP_INVALID_INDEX;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a8615fc88d144ace90451272e7703a7fb">tick</a>();</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">next</a>();</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a9edf269efd7482af87946c6b417975de">activate</a>(<a class="code" href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a> <a class="code" href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">next</a>);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_display_manager.html#a85662410c3f6f72493e605af7db8913a">updateState</a>();</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <a class="code" href="class_display_about.html">DisplayAbout</a> about;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <a class="code" href="class_display_water_temp.html">DisplayWaterTemp</a> temp;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <a class="code" href="class_display_home.html">DisplayHome</a> home;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <a class="code" href="class_display_voltage.html">DisplayVoltage</a> voltage;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <a class="code" href="class_display_time.html">DisplayTime</a> time;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <a class="code" href="class_display_error.html">DisplayError</a> errorSingle;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <a class="code" href="class_display_error_alternating.html">DisplayErrorAlternating</a> error;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <a class="code" href="class_display.html">Display</a> *<span class="keyword">const</span> displays[8] = {&amp;home, &amp;temp, &amp;voltage, &amp;time, &amp;about, &amp;errorSingle, &amp;error, &amp;time};</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keyword">const</span> int8_t VIEWABLE_DISPLAYS = 4; <span class="comment">// When the display is not one on the viewable list.</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;};</div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="line" href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">  447</a></span>&#160;    uint8_t <a class="code" href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">currentIndex</a> = DISP_INVALID_INDEX;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <a class="code" href="class_display_about.html">DisplayAbout</a> about;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <a class="code" href="class_display_water_temp.html">DisplayWaterTemp</a> temp;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <a class="code" href="class_display_home.html">DisplayHome</a> home;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <a class="code" href="class_display_voltage.html">DisplayVoltage</a> voltage;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <a class="code" href="class_display_time.html">DisplayTime</a> time;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <a class="code" href="class_display_error.html">DisplayError</a> errorSingle;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <a class="code" href="class_display_error_alternating.html">DisplayErrorAlternating</a> error;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <a class="code" href="class_display.html">Display</a> *<span class="keyword">const</span> displays[8] = {&amp;home, &amp;temp, &amp;voltage, &amp;time, &amp;about, &amp;errorSingle, &amp;error, &amp;time};</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keyword">const</span> int8_t VIEWABLE_DISPLAYS = 4; <span class="comment">// When the display is not one on the viewable list.</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;};</div>
 <div class="ttc" id="aclass_display_about_html"><div class="ttname"><a href="class_display_about.html">DisplayAbout</a></div><div class="ttdoc">A simple about page that shows more info on the unit.</div><div class="ttdef"><b>Definition:</b> display.h:133</div></div>
 <div class="ttc" id="aclass_display_about_html_a2441b5a2c5f0d90d742001be2764553a"><div class="ttname"><a href="class_display_about.html#a2441b5a2c5f0d90d742001be2764553a">DisplayAbout::intervalTick</a></div><div class="ttdeci">virtual void intervalTick()</div><div class="ttdoc">Called regularly to scroll.</div><div class="ttdef"><b>Definition:</b> display.cpp:160</div></div>
 <div class="ttc" id="aclass_display_about_html_a470f197876fb3727389cc0b6e9ad7e80"><div class="ttname"><a href="class_display_about.html#a470f197876fb3727389cc0b6e9ad7e80">DisplayAbout::activate</a></div><div class="ttdeci">virtual void activate()</div><div class="ttdoc">Draws the display as the current one on the screen.</div><div class="ttdef"><b>Definition:</b> display.cpp:84</div></div>
 <div class="ttc" id="aclass_display_error_alternating_html"><div class="ttname"><a href="class_display_error_alternating.html">DisplayErrorAlternating</a></div><div class="ttdoc">Alternates between display error and home regularly.</div><div class="ttdef"><b>Definition:</b> display.h:327</div></div>
 <div class="ttc" id="aclass_display_error_alternating_html_a6ded4b97fe2d8124e90fcad0f02463c4"><div class="ttname"><a href="class_display_error_alternating.html#a6ded4b97fe2d8124e90fcad0f02463c4">DisplayErrorAlternating::intervalTick</a></div><div class="ttdeci">virtual void intervalTick()</div><div class="ttdoc">Swaps beteen home and error.</div><div class="ttdef"><b>Definition:</b> display.cpp:382</div></div>
+<div class="ttc" id="aclass_display_error_alternating_html_a7b730b67c4e0a9d0ace1eac55dbf2d0e"><div class="ttname"><a href="class_display_error_alternating.html#a7b730b67c4e0a9d0ace1eac55dbf2d0e">DisplayErrorAlternating::drawState</a></div><div class="ttdeci">virtual void drawState()</div><div class="ttdoc">Calls drawState for the currently active display.</div><div class="ttdef"><b>Definition:</b> display.cpp:397</div></div>
 <div class="ttc" id="aclass_display_error_alternating_html_a8d89cf1ded6cc8216cfa585cf61db4c1"><div class="ttname"><a href="class_display_error_alternating.html#a8d89cf1ded6cc8216cfa585cf61db4c1">DisplayErrorAlternating::activate</a></div><div class="ttdeci">virtual void activate()</div><div class="ttdoc">Activates the error display first.</div><div class="ttdef"><b>Definition:</b> display.cpp:362</div></div>
 <div class="ttc" id="aclass_display_error_alternating_html_acb6cdca9c42d1222f424135cdc91bd25"><div class="ttname"><a href="class_display_error_alternating.html#acb6cdca9c42d1222f424135cdc91bd25">DisplayErrorAlternating::deactivate</a></div><div class="ttdeci">virtual void deactivate()</div><div class="ttdoc">Deactivates the current display (home or error)</div><div class="ttdef"><b>Definition:</b> display.cpp:369</div></div>
 <div class="ttc" id="aclass_display_error_html"><div class="ttname"><a href="class_display_error.html">DisplayError</a></div><div class="ttdoc">Display that shows an error message on the screen.</div><div class="ttdef"><b>Definition:</b> display.h:304</div></div>
@@ -300,15 +303,15 @@ $(function() {
 <div class="ttc" id="aclass_display_interval_tick_html_a96f10d4ab0af1a9f82916d70a2061d28"><div class="ttname"><a href="class_display_interval_tick.html#a96f10d4ab0af1a9f82916d70a2061d28">DisplayIntervalTick::intervalTick</a></div><div class="ttdeci">virtual void intervalTick()</div><div class="ttdoc">Method that is called on the interval tick.</div><div class="ttdef"><b>Definition:</b> display.h:121</div></div>
 <div class="ttc" id="aclass_display_interval_tick_html_a9bc3dd5ac4d44faba49c3bef849ad4e1"><div class="ttname"><a href="class_display_interval_tick.html#a9bc3dd5ac4d44faba49c3bef849ad4e1">DisplayIntervalTick::activate</a></div><div class="ttdeci">virtual void activate()</div><div class="ttdoc">Draws the display as the current one on the screen.</div><div class="ttdef"><b>Definition:</b> display.cpp:78</div></div>
 <div class="ttc" id="aclass_display_interval_tick_html_afa8e78d611968fbf8f2e4844a2180700"><div class="ttname"><a href="class_display_interval_tick.html#afa8e78d611968fbf8f2e4844a2180700">DisplayIntervalTick::tick</a></div><div class="ttdeci">virtual void tick()</div><div class="ttdoc">Checks if the interval has ellapsed and calls intervalTick if it has.</div><div class="ttdef"><b>Definition:</b> display.cpp:65</div></div>
-<div class="ttc" id="aclass_display_manager_html"><div class="ttname"><a href="class_display_manager.html">DisplayManager</a></div><div class="ttdoc">All displays / screens that are being used.</div><div class="ttdef"><b>Definition:</b> display.h:403</div></div>
-<div class="ttc" id="aclass_display_manager_html_a52ecf58d7d5e64ba02127c875accc71d"><div class="ttname"><a href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">DisplayManager::next</a></div><div class="ttdeci">void next()</div><div class="ttdoc">Activates the next display that the user can cycle through using the button. If a different screen (l...</div><div class="ttdef"><b>Definition:</b> display.cpp:446</div></div>
-<div class="ttc" id="aclass_display_manager_html_a85662410c3f6f72493e605af7db8913a"><div class="ttname"><a href="class_display_manager.html#a85662410c3f6f72493e605af7db8913a">DisplayManager::updateState</a></div><div class="ttdeci">virtual void updateState()</div><div class="ttdoc">Called to update data from the current state.</div><div class="ttdef"><b>Definition:</b> display.cpp:484</div></div>
-<div class="ttc" id="aclass_display_manager_html_a8615fc88d144ace90451272e7703a7fb"><div class="ttname"><a href="class_display_manager.html#a8615fc88d144ace90451272e7703a7fb">DisplayManager::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdoc">Calls the tick function for each display.</div><div class="ttdef"><b>Definition:</b> display.cpp:437</div></div>
-<div class="ttc" id="aclass_display_manager_html_a9edf269efd7482af87946c6b417975de"><div class="ttname"><a href="class_display_manager.html#a9edf269efd7482af87946c6b417975de">DisplayManager::activate</a></div><div class="ttdeci">void activate(DisplayIndex next)</div><div class="ttdoc">Deactivates the current and activates the given display.</div><div class="ttdef"><b>Definition:</b> display.cpp:466</div></div>
-<div class="ttc" id="aclass_display_manager_html_afa04905e2d5c4accb23df0631bc22bd2"><div class="ttname"><a href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">DisplayManager::currentIndex</a></div><div class="ttdeci">uint8_t currentIndex</div><div class="ttdoc">Don't set this directly. Instead use activate() or next().</div><div class="ttdef"><b>Definition:</b> display.h:441</div></div>
-<div class="ttc" id="aclass_display_time_html"><div class="ttname"><a href="class_display_time.html">DisplayTime</a></div><div class="ttdoc">Display that shows the total and trip times.</div><div class="ttdef"><b>Definition:</b> display.h:363</div></div>
-<div class="ttc" id="aclass_display_time_html_a4be2c73e5cecaa4170dd96c96dae57c3"><div class="ttname"><a href="class_display_time.html#a4be2c73e5cecaa4170dd96c96dae57c3">DisplayTime::drawState</a></div><div class="ttdeci">virtual void drawState()</div><div class="ttdoc">Called whenever data that the system might have on the screen is updated.</div><div class="ttdef"><b>Definition:</b> display.cpp:417</div></div>
-<div class="ttc" id="aclass_display_time_html_aff8fdeb60eee78e7b606dbf61ee18e8e"><div class="ttname"><a href="class_display_time.html#aff8fdeb60eee78e7b606dbf61ee18e8e">DisplayTime::activate</a></div><div class="ttdeci">virtual void activate()</div><div class="ttdoc">Draws the display as the current one on the screen.</div><div class="ttdef"><b>Definition:</b> display.cpp:397</div></div>
+<div class="ttc" id="aclass_display_manager_html"><div class="ttname"><a href="class_display_manager.html">DisplayManager</a></div><div class="ttdoc">All displays / screens that are being used.</div><div class="ttdef"><b>Definition:</b> display.h:409</div></div>
+<div class="ttc" id="aclass_display_manager_html_a52ecf58d7d5e64ba02127c875accc71d"><div class="ttname"><a href="class_display_manager.html#a52ecf58d7d5e64ba02127c875accc71d">DisplayManager::next</a></div><div class="ttdeci">void next()</div><div class="ttdoc">Activates the next display that the user can cycle through using the button. If a different screen (l...</div><div class="ttdef"><b>Definition:</b> display.cpp:458</div></div>
+<div class="ttc" id="aclass_display_manager_html_a85662410c3f6f72493e605af7db8913a"><div class="ttname"><a href="class_display_manager.html#a85662410c3f6f72493e605af7db8913a">DisplayManager::updateState</a></div><div class="ttdeci">virtual void updateState()</div><div class="ttdoc">Called to update data from the current state.</div><div class="ttdef"><b>Definition:</b> display.cpp:496</div></div>
+<div class="ttc" id="aclass_display_manager_html_a8615fc88d144ace90451272e7703a7fb"><div class="ttname"><a href="class_display_manager.html#a8615fc88d144ace90451272e7703a7fb">DisplayManager::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdoc">Calls the tick function for each display.</div><div class="ttdef"><b>Definition:</b> display.cpp:449</div></div>
+<div class="ttc" id="aclass_display_manager_html_a9edf269efd7482af87946c6b417975de"><div class="ttname"><a href="class_display_manager.html#a9edf269efd7482af87946c6b417975de">DisplayManager::activate</a></div><div class="ttdeci">void activate(DisplayIndex next)</div><div class="ttdoc">Deactivates the current and activates the given display.</div><div class="ttdef"><b>Definition:</b> display.cpp:478</div></div>
+<div class="ttc" id="aclass_display_manager_html_afa04905e2d5c4accb23df0631bc22bd2"><div class="ttname"><a href="class_display_manager.html#afa04905e2d5c4accb23df0631bc22bd2">DisplayManager::currentIndex</a></div><div class="ttdeci">uint8_t currentIndex</div><div class="ttdoc">Don't set this directly. Instead use activate() or next().</div><div class="ttdef"><b>Definition:</b> display.h:447</div></div>
+<div class="ttc" id="aclass_display_time_html"><div class="ttname"><a href="class_display_time.html">DisplayTime</a></div><div class="ttdoc">Display that shows the total and trip times.</div><div class="ttdef"><b>Definition:</b> display.h:369</div></div>
+<div class="ttc" id="aclass_display_time_html_a4be2c73e5cecaa4170dd96c96dae57c3"><div class="ttname"><a href="class_display_time.html#a4be2c73e5cecaa4170dd96c96dae57c3">DisplayTime::drawState</a></div><div class="ttdeci">virtual void drawState()</div><div class="ttdoc">Called whenever data that the system might have on the screen is updated.</div><div class="ttdef"><b>Definition:</b> display.cpp:429</div></div>
+<div class="ttc" id="aclass_display_time_html_aff8fdeb60eee78e7b606dbf61ee18e8e"><div class="ttname"><a href="class_display_time.html#aff8fdeb60eee78e7b606dbf61ee18e8e">DisplayTime::activate</a></div><div class="ttdeci">virtual void activate()</div><div class="ttdoc">Draws the display as the current one on the screen.</div><div class="ttdef"><b>Definition:</b> display.cpp:409</div></div>
 <div class="ttc" id="aclass_display_voltage_html"><div class="ttname"><a href="class_display_voltage.html">DisplayVoltage</a></div><div class="ttdoc">Class for the water temperature.</div><div class="ttdef"><b>Definition:</b> display.h:261</div></div>
 <div class="ttc" id="aclass_display_voltage_html_a450e426d3fcbdd74702f63b2621b382c"><div class="ttname"><a href="class_display_voltage.html#a450e426d3fcbdd74702f63b2621b382c">DisplayVoltage::drawState</a></div><div class="ttdeci">virtual void drawState()</div><div class="ttdoc">Called whenever data that the system might have on the screen is updated.</div><div class="ttdef"><b>Definition:</b> display.cpp:291</div></div>
 <div class="ttc" id="aclass_display_voltage_html_a544eae066171862d032d44114821e197"><div class="ttname"><a href="class_display_voltage.html#a544eae066171862d032d44114821e197">DisplayVoltage::updateData</a></div><div class="ttdeci">virtual void updateData()</div><div class="ttdoc">Called whenever there is a new state available.</div><div class="ttdef"><b>Definition:</b> display.cpp:286</div></div>
@@ -324,7 +327,7 @@ $(function() {
 <div class="ttc" id="aclass_graph_html_ada273130a49b53413adccacca9987fb5"><div class="ttname"><a href="class_graph.html#ada273130a49b53413adccacca9987fb5">Graph::setRegisters</a></div><div class="ttdeci">void setRegisters()</div><div class="ttdoc">Sets the registers and draws the graph on the screen.</div><div class="ttdef"><b>Definition:</b> display.cpp:215</div></div>
 <div class="ttc" id="aclass_graph_html_afb0185b10e20bf8f8b6768c3bbd54607"><div class="ttname"><a href="class_graph.html#afb0185b10e20bf8f8b6768c3bbd54607">Graph::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Draws the graph in the bottom left corner.</div><div class="ttdef"><b>Definition:</b> display.cpp:220</div></div>
 <div class="ttc" id="adefines_8h_html"><div class="ttname"><a href="defines_8h.html">defines.h</a></div><div class="ttdoc">Pin and other definitions.</div></div>
-<div class="ttc" id="adisplay_8h_html_a78265c24a3374ce6b13eb261a0b456bf"><div class="ttname"><a href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a></div><div class="ttdeci">DisplayIndex</div><div class="ttdoc">Convenient indices / names corresponding to the array of displays.</div><div class="ttdef"><b>Definition:</b> display.h:386</div></div>
+<div class="ttc" id="adisplay_8h_html_a78265c24a3374ce6b13eb261a0b456bf"><div class="ttname"><a href="display_8h.html#a78265c24a3374ce6b13eb261a0b456bf">DisplayIndex</a></div><div class="ttdeci">DisplayIndex</div><div class="ttdoc">Convenient indices / names corresponding to the array of displays.</div><div class="ttdef"><b>Definition:</b> display.h:392</div></div>
 <div class="ttc" id="astate_8h_html"><div class="ttname"><a href="state_8h.html">state.h</a></div><div class="ttdoc">A class for the current system state.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
