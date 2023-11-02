@@ -456,5 +456,5 @@ private:
     DisplayErrorAlternating error;
 
     Display *const displays[8] = {&home, &temp, &voltage, &time, &about, &errorSingle, &error, &time};
-    const int8_t VIEWABLE_DISPLAYS = 4; // When the display is not one on the viewable list.
+    const int8_t VIEWABLE_DISPLAYS = 5; // When the display is not one on the viewable list.
 };

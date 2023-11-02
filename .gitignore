@@ -41,3 +41,7 @@ WatchdogPCB/output
 *.FCBak
 *.gcode
 *.3mf
+
+# Drawio backups
+*.bkp
+*.dtmp
