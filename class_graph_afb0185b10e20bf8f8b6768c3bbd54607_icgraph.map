@@ -1,0 +1,5 @@
+<map id="Graph::display" name="Graph::display">
+<area shape="rect" id="node1" title="Draws the graph in the bottom left corner." alt="" coords="259,31,375,57"/>
+<area shape="rect" id="node2" href="$class_display_water_temp.html#a5162af6983cb9973e3e509eb64d56853" title="Draws the display as the current one on the screen." alt="" coords="5,5,211,32"/>
+<area shape="rect" id="node3" href="$class_display_voltage.html#a7de83f5d55fb4616178e8e6e9622298f" title="Draws the display as the current one on the screen." alt="" coords="17,56,199,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graph::addData" name="Graph::addData">
+<area shape="rect" id="node1" title="Adds a datapoint to be averaged. The max and min is also set using these." alt="" coords="281,31,405,57"/>
+<area shape="rect" id="node2" href="$class_display_water_temp.html#a714a43a135f3042a5691a54bc12372cf" title="Called whenever there is a new state available." alt="" coords="5,5,233,32"/>
+<area shape="rect" id="node3" href="$class_display_voltage.html#a544eae066171862d032d44114821e197" title="Called whenever there is a new state available." alt="" coords="17,56,221,83"/>
+</map>

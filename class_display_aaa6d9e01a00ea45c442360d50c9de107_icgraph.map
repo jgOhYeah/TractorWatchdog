@@ -1,0 +1,7 @@
+<map id="Display::rightJustify" name="Display::rightJustify">
+<area shape="rect" id="node1" title="Right justifies and prints a number to the display." alt="" coords="768,31,916,57"/>
+<area shape="rect" id="node2" href="$class_display_water_temp.html#a60c70c749333df65746e8334728b1d67" title="Called whenever data that the system might have on the screen is updated." alt="" coords="501,5,720,32"/>
+<area shape="rect" id="node3" href="$class_display.html#afcc251bd74c5b52808e5fb0ee2431d7c" title="Prints a number in tenths." alt="" coords="535,56,687,83"/>
+<area shape="rect" id="node4" href="$class_display_voltage.html#a450e426d3fcbdd74702f63b2621b382c" title="Called whenever data that the system might have on the screen is updated." alt="" coords="259,56,453,83"/>
+<area shape="rect" id="node5" href="$class_display_voltage.html#a667bfa1591ef2fcceb1d0bdafb7db4ca" title="Method that is called on the interval tick." alt="" coords="5,56,211,83"/>
+</map>

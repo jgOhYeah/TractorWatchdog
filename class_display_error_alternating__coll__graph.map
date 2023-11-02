@@ -1,5 +1,7 @@
 <map id="DisplayErrorAlternating" name="DisplayErrorAlternating">
-<area shape="rect" id="node1" title="Alternates between display error and home regularly." alt="" coords="5,155,180,181"/>
-<area shape="rect" id="node2" href="$class_display_interval_tick.html" title="Adds an interval based tick to the display class. The interval is reset whenever the display is activ..." alt="" coords="19,80,167,107"/>
-<area shape="rect" id="node3" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="57,5,128,32"/>
+<area shape="rect" id="node1" title="Alternates between display error and home regularly." alt="" coords="5,247,180,273"/>
+<area shape="rect" id="node2" href="$class_display_interval_tick.html" title="Adds an interval based tick to the display class. The interval is reset whenever the display is activ..." alt="" coords="19,171,167,197"/>
+<area shape="rect" id="node3" href="$class_display.html" title="Base class for each window that is displayed on the LCD." alt="" coords="57,95,128,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="6,5,57,32"/>
+<area shape="rect" id="node5" title=" " alt="" coords="81,5,230,32"/>
 </map>

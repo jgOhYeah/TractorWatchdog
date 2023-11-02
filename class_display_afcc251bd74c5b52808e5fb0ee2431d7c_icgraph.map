@@ -1,0 +1,5 @@
+<map id="Display::drawTenths" name="Display::drawTenths">
+<area shape="rect" id="node1" title="Prints a number in tenths." alt="" coords="501,5,653,32"/>
+<area shape="rect" id="node2" href="$class_display_voltage.html#a450e426d3fcbdd74702f63b2621b382c" title="Called whenever data that the system might have on the screen is updated." alt="" coords="259,5,453,32"/>
+<area shape="rect" id="node3" href="$class_display_voltage.html#a667bfa1591ef2fcceb1d0bdafb7db4ca" title="Method that is called on the interval tick." alt="" coords="5,5,211,32"/>
+</map>
