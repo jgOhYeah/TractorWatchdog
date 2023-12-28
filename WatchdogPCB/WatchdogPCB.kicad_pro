@@ -448,7 +448,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "output/WatchdogPCB.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -491,6 +491,14 @@
     [
       "01720b08-9f76-4170-adb2-58115ea6550d",
       ""
+    ],
+    [
+      "e849c8bd-f0e9-4c20-b69d-b4e1f96bf987",
+      "Main PCB"
+    ],
+    [
+      "8a3b631f-41e1-4561-97dd-0431eff7df3f",
+      "Remote PCB"
     ]
   ],
   "text_variables": {}
